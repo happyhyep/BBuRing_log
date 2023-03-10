@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import PostImage from "./PostedImage";
+import PostedImages from "./PostedImages";
+import styled from "styled-components";
 
 
 const {kakao} = window;
@@ -35,18 +36,21 @@ function MapContainer() {
             });
             var infowindow = new kakao.maps.InfoWindow({
                 content: el.title, // 인포윈도우에 표시할 내용
-                
+                //게시글 개수
               });
+            //마커에 마우스 올렸을 때
             kakao.maps.event.addListener(
                 marker,
                 "mouseover",
                 makeOverListener(map, marker, infowindow)
             );
+            //마커에서 마우스 내렸을 때
             kakao.maps.event.addListener(
                 marker,
                 "mouseout",
                 makeOutListener(infowindow)
             );
+            //마커 클릭했을 때
             kakao.maps.event.addListener(
                     marker,
                     'click',
@@ -65,25 +69,28 @@ function MapContainer() {
               infowindow.close();
             };
           }
-        let [is_marker_clicked, set_marker_clicked] = useState(false)
 
+        let [is_marker_clicked, set_marker_clicked] = useState(false)
         function MarkerClick() {
             return function() {
                 console.log('is_clicked')
-                set_marker_clicked(true)
+                set_marker_clicked(!is_marker_clicked)
             }
         }
 
     return (
-        <div>
-        <div id="map" style={{
-            width: '500px',
-            height: '500px',
-        }}></div>
-        {is_marker_clicked ? <div><PostImage></PostImage></div> : null}
+        <div style={{margin: 'auto'}}>
+            <div id="map" style={{
+                marginTop: '5rem',
+                width: '400px',
+                height: '400px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                boxShadow: '0 5px 20px rgba(0, 0, 0, 0.8)'
+            }}></div>
+            {is_marker_clicked ? <div><PostedImages></PostedImages></div> : null}
         </div>
     )
 }
 export default MapContainer;
-
 

@@ -6,7 +6,14 @@ import NavBar from "../components/NavBar";
 export default function Home(){
     return (
         <div>
-                <NavBar></NavBar>
+            <div>
+                    <NavBar></NavBar>
+            </div>
+            <div style={{
+                margin: 'auto'
+            }}>
+                <NavLink to='/map'>Map</NavLink>
+            </div>
         </div>
     )
 }
