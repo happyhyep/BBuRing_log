@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 const {kakao} = window;
 
@@ -32,6 +33,7 @@ function MapContainer() {
             });
             var infowindow = new kakao.maps.InfoWindow({
                 content: el.title, // 인포윈도우에 표시할 내용
+                
               });
             kakao.maps.event.addListener(
                 marker,
@@ -43,10 +45,15 @@ function MapContainer() {
                 "mouseout",
                 makeOutListener(infowindow)
             );
+            kakao.maps.event.addListener(
+                    marker,
+                    'click',
+                    MarkerClick()
+            );
             marker.setMap(map);
         }, [])
         })
-     function makeOverListener(map, marker, infowindow) {
+        function makeOverListener(map, marker, infowindow) {
         return function () {
             infowindow.open(map, marker);
         };
@@ -56,6 +63,12 @@ function MapContainer() {
               infowindow.close();
             };
           }
+        function MarkerClick() {
+            return function() {
+                console.log("rr")
+                return(<NavLink to='/home'></NavLink>)
+            }
+        }
 
     return (
         <div id="map" style={{

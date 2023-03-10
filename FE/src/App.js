@@ -13,11 +13,7 @@ function App() {
       color: "#F5F1F1",
     }}>
       <Router></Router>
-      <div className='map' style={{
-        width: "50px",
-        height: "50px"
-      }}>
-      </div>
+
     </div>
   );
 }

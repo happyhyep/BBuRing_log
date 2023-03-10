@@ -1,8 +1,6 @@
 import React from "react";
-import { BrowserRouter, NavLink } from "react-router-dom";
-import styled from "styled-components";
+import {  NavLink } from "react-router-dom";
 import MapContainer from "../components/MapContainer";
-import NavBar from "../components/NavBar";
 
 export default function Map(){
     return (
