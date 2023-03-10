@@ -2,22 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import LoginComponent from "../components/LoginComponent";
+import NavBar from "../components/NavBar";
 
 export default function LogIn() {
     return(
-        <div>
-            <TopMenu>
+        <>
+            <NavBar>
                     <div><NavLink to='/'>Home</NavLink></div>
-            </TopMenu>
+            </NavBar>
             <div style={{margin: 'auto'}}><LoginComponent></LoginComponent></div>
-        </div>
+        </>
     )
 }
-
-const TopMenu = styled.div`
-    height: 10vh;
-    display: flex;
-    background-color: #E9AC06;
-    align-items: center;
-    justify-content: space-between;
-`

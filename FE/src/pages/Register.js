@@ -1,23 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-
+import NavBar from "../components/NavBar";
+import RegisterComponent from "../components/RegisterComponent";
 export default function Register() {
     return(
-        <div>
-            <TopMenu>
+        <>
+            <NavBar>
                     <div><NavLink to='/'>Home</NavLink></div>
-            </TopMenu>
-            {/*<div style={{margin: 'auto'}}><RegisterComponent></RegisterComponent></div>*/}
+            </NavBar>
+            <div style={{margin: 'auto'}}><RegisterComponent></RegisterComponent></div>
             <div>register</div>
-        </div>
+        </>
     )
 }
-
-const TopMenu = styled.div`
-    height: 10vh;
-    display: flex;
-    background-color: #E9AC06;
-    align-items: center;
-    justify-content: space-between;
-`

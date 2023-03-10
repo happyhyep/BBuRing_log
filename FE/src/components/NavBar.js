@@ -6,8 +6,8 @@ const NavBar = () => {
     return (
         <div className='NavBar'>
             <TopMenu>
-                    <div><NavLink to='/'>Home</NavLink></div>
-                    <div><NavLink to='/login'>login</NavLink></div>
+                    <NavText to='/'>BBuRing_log</NavText>
+                    <NavText to='/login' style={{fontSize:'20px'}}>login</NavText>
             </TopMenu>
         </div>
     )
@@ -18,8 +18,18 @@ export default NavBar;
 const TopMenu = styled.div`
     height: 10vh;
     display: flex;
-    background-color: #E9AC06;
+    background-color: rgb(254,213,107);
     align-items: center;
     justify-content: space-between;
+
+    color: rgb(234,130,99);
 `
 
+const NavText = styled(NavLink)`
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+    font-size: 25px;
+    color: rgb(234,130,99);
+    text-decoration: none;
+`

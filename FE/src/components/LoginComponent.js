@@ -27,10 +27,10 @@ export default function LoginComponent() {
                     <br />
                     <Label htmlFor="id">비밀번호</Label>
                     <br />
-                    <Input type="text" id="password" onChange={onPwHandler} placeholder="비밀번호"></Input>
+                    <Input type="password" id="password" onChange={onPwHandler} placeholder="비밀번호"></Input>
                 </form>            
             </Contents>
-            <Button type="submit">로그인</Button>
+            <Button type="submit" onClick={onSubmitHandler}>로그인</Button>
 
             <RegisterLink><NavLink to="/auth/register">회원가입</NavLink></RegisterLink>
             
@@ -46,16 +46,19 @@ const Positioner = styled.div`
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
     position: relative;
     padding-bottom: 0.01rem;
+    border-radius: 0.5rem;
 `;
 
 const Logo = styled.div`
-    background-color: #E9AC06;
+    background-color: rgb(254,213,107);
     height: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
 
-    color: white;
+    color: rgb(234,156,094);
     font-family: 'Rajdhani';
     font-size: 2.4rem;
     letter-spacing: 5px;
@@ -72,13 +75,14 @@ const Contents = styled.div`
 const Input = styled.input`
     width: 95%;
     border: 1px solid grey;
+    border-radius: 0.5rem;
     outline: none;
-    border-radius: 0px;
     line-height: 2.5rem;
-    font-size: 1.2rem;
     padding-left: 0.5rem;
     padding-right: 0rem;
     margin-right: 1rem;
+
+    font-size: 1.2rem;
     color: grey;
 `;
 
@@ -94,9 +98,11 @@ const Button = styled.button`
     margin-right: 1rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    border-color: white;
+    border-radius: 0.5rem;
 
-    background: #E9AC06;
-    color: white;
+    background: rgb(254,213,107);
+    color: rgb(234,130,99);
 
     text-align: center;
     font-size: 1rem;
