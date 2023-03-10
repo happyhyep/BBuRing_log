@@ -25,14 +25,12 @@ const TopMenu = styled.div`
 `
 
 const NavTextLogo = styled(NavLink)`
-    margin-left: 1rem;
     display: flex;
     width:100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1600px;
+    margin-left: 30px;
     align-items: center;
     justify-content: space-between;
-
 
     font-size: 25px;
     color: rgb(234,130,99);
@@ -42,6 +40,7 @@ const NavTextLogo = styled(NavLink)`
 const NavText = styled(NavLink)`
     margin-left: 0rem;
     margin-right: 3rem;
+    min-width:70px;
     display: flex;
     align-items: center;
 
