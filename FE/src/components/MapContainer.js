@@ -1,5 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import PostImage from "./PostedImage";
+
 
 const {kakao} = window;
 
@@ -63,18 +65,25 @@ function MapContainer() {
               infowindow.close();
             };
           }
+        let [is_marker_clicked, set_marker_clicked] = useState(false)
+
         function MarkerClick() {
             return function() {
-                console.log("rr")
-                return(<NavLink to='/home'></NavLink>)
+                console.log('is_clicked')
+                set_marker_clicked(true)
             }
         }
 
     return (
+        <div>
         <div id="map" style={{
             width: '500px',
-            height: '500px'
+            height: '500px',
         }}></div>
+        {is_marker_clicked ? <div><PostImage></PostImage></div> : null}
+        </div>
     )
 }
 export default MapContainer;
+
+
