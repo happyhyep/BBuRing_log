@@ -40,7 +40,7 @@ function MapContainer() {
                 "mouseover",
                 makeOverListener(map, marker, infowindow)
             );
-                kakao.maps.event.addListener(
+            kakao.maps.event.addListener(
                 marker,
                 "mouseout",
                 makeOutListener(infowindow)
