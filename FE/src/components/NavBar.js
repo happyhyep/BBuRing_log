@@ -39,7 +39,7 @@ const NavTextLogo = styled(NavLink)`
 
 const NavText = styled(NavLink)`
     margin-left: 0rem;
-    margin-right: 3rem;
+    margin-right: 2rem;
     min-width:70px;
     display: flex;
     align-items: center;

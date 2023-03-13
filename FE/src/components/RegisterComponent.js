@@ -4,15 +4,15 @@ import styled from "styled-components";
 
 export default function RegisterComponent() {
     const [name, setName] = useState("");
-    const [tel, setTel] = useState("");
+    const [nickname, setNickName] = useState("");
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
 
     const onNameHandler = (e) => {
         setName(e.currentTarget.value);
     }
-    const onTelHandler = (e) => {
-        setTel(e.currentTarget.value);
+    const onNicknameHandler = (e) => {
+        setNickName(e.currentTarget.value);
     }
     const onIdHandler = (e) => {
         setId(e.currentTarget.value);
@@ -22,7 +22,6 @@ export default function RegisterComponent() {
     }
     const onSubmitHandler = (e) => {
         e.preventDefault(); //submit 했을 떄 리프레쉬 방지
-        console.log(name, tel, id, password);
     }
     return(
         <Positioner>
@@ -32,9 +31,9 @@ export default function RegisterComponent() {
                     <Label htmlFor="name">이름</Label>
                     <br />
                     <Input type="text" id="name" onChange={onNameHandler} placeholder="홍길동"></Input>
-                    <Label htmlFor="tel">전화번호 (010-0000-0000)</Label>
+                    <Label htmlFor="nickname">닉네임</Label>
                     <br />
-                    <Input type="text" id="tel" onChange={onTelHandler} placeholder="010-1234-5678"></Input>
+                    <Input type="text" id="nickname" onChange={onNicknameHandler} placeholder="혠"></Input>
                     <Label htmlFor="id">아이디</Label>
                     <br />
                     <Input type="text" id="id" onChange={onIdHandler} placeholder="abc123"></Input>

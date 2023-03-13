@@ -21,7 +21,7 @@ function MapContainer() {
     ];
 
     const imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-    
+    const [_map, setMap] = useState();
     useEffect(() => {
         const container = document.getElementById('map');
         const options = {
@@ -57,8 +57,9 @@ function MapContainer() {
                     MarkerClick()
             );
             marker.setMap(map);
-        }, [])
-        })
+        }, []);
+        setMap(map);
+    }, _map)
         function makeOverListener(map, marker, infowindow) {
         return function () {
             infowindow.open(map, marker);
@@ -73,10 +74,18 @@ function MapContainer() {
         let [is_marker_clicked, set_marker_clicked] = useState(false)
         function MarkerClick() {
             return function() {
-                console.log('is_clicked')
                 set_marker_clicked(!is_marker_clicked)
             }
         }
+
+        const zoomIn = () => {
+            _map.setLevel(_map.getLevel() - 1);
+            console.log("zoomin")
+          }
+      
+          const zoomOut = () => {
+            _map.setLevel(_map.getLevel() + 1);
+          }
 
     return (
         <div style={{margin: 'auto'}}>
@@ -87,10 +96,36 @@ function MapContainer() {
                 marginLeft: 'auto',
                 marginRight: 'auto',
                 boxShadow: '0 5px 20px rgba(0, 0, 0, 0.8)'
-            }}></div>
+            }}>
+            <MapBtnContainer>
+                <MapControlBtn  onClick={zoomIn} style={{borderRight: "1px solid #919191"}} >+</MapControlBtn>
+                <MapControlBtn  onClick={zoomOut}  >-</MapControlBtn>
+            </MapBtnContainer>
+            </div>
             {is_marker_clicked ? <div><PostedImages></PostedImages></div> : null}
         </div>
     )
 }
 export default MapContainer;
 
+const MapBtnContainer = styled.div`
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  z-index: 5;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  border:1px solid #919191;
+  background-color: #F5F5F5;
+`
+
+const MapControlBtn = styled.div`
+  width:40px;
+  height:30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+  cursor:pointer;
+`
