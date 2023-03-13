@@ -10,7 +10,6 @@ export default function Register() {
                     <div><NavLink to='/'>Home</NavLink></div>
             </NavBar>
             <div style={{margin: 'auto'}}><RegisterComponent></RegisterComponent></div>
-            <div>register</div>
         </>
     )
 }

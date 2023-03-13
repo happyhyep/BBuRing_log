@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import axios from "axios";
 
 export default function LoginComponent() {
     const [id, setId] = useState("");
@@ -13,9 +14,11 @@ export default function LoginComponent() {
         setPassword(e.currentTarget.value)
     }
     const onSubmitHandler = (e) => {
+        axios.post(`http://172.16.251.79:8080/user/login`, {id: id, pw: password})
         e.preventDefault(); //submit 했을 떄 리프레쉬 방지
-        console.log(id, password)
+        console.log(id, password);
     }
+
     return(
         <Positioner>
             <Logo>Login</Logo>
@@ -25,7 +28,7 @@ export default function LoginComponent() {
                     <br />
                     <Input type="text" id="id" onChange={onIdHandler} placeholder="아이디"></Input>
                     <br />
-                    <Label htmlFor="id">비밀번호</Label>
+                    <Label htmlFor="password">비밀번호</Label>
                     <br />
                     <Input type="password" id="password" onChange={onPwHandler} placeholder="비밀번호"></Input>
                 </form>            

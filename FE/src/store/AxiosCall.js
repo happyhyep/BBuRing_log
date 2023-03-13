@@ -10,12 +10,12 @@ export const getAxios = (endPoint, data = {}, config = {}) =>
         ...config,
     });
 
-export const postAxios = (endPoint, data = {}, config = {}) =>
+export const postAxios = (endPoint, params = {}, config = {}) =>
     axios({
         url: `http://172.16.251.79:8080${endPoint}`,
         method: 'POST',
         withCredentials: true,
-        data: data,
+        data: params,
         ...config,
     });
 

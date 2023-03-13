@@ -23,8 +23,8 @@ export default function RegisterComponent() {
         setPassword(e.currentTarget.value);
     }
     const onSubmitHandler = (e) => {
-        registerUser({name: name, id: id, pw: password, Nick: nickname})
-        //axios.post(`http://172.16.251.79:8080/user/register`, {name: name, id: id, pw: password, Nick: nickname})
+        //registerUser({name: name, id: id, pw: password, Nick: nickname})
+        axios.post(`http://172.16.251.79:8080/user/register`, {name: name, id: id, pw: password, Nick: nickname})
         e.preventDefault(); //submit 했을 떄 리프레쉬 방지
         console.log(name, id, password, nickname);
     }
