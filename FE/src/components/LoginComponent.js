@@ -14,7 +14,7 @@ export default function LoginComponent() {
         setPassword(e.currentTarget.value)
     }
     const onSubmitHandler = (e) => {
-        axios.post(`http://172.16.251.79:8080/user/login`, {id: id, pw: password})
+        axios.post(`http://172.16.251.192:8080/user/login`, {id: id, pw: password})
         e.preventDefault(); //submit 했을 떄 리프레쉬 방지
         console.log(id, password);
     }
