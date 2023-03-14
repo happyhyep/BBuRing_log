@@ -90,9 +90,9 @@ function MapContainer() {
     return (
         <div style={{margin: 'auto'}}>
             <div id="map" style={{
-                marginTop: '5rem',
-                width: '400px',
-                height: '400px',
+                marginTop: '3rem',
+                width: '600px',
+                height: '450px',
                 marginLeft: 'auto',
                 marginRight: 'auto',
                 boxShadow: '0 5px 20px rgba(0, 0, 0, 0.8)'
