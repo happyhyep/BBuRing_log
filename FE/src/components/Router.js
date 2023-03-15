@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Post from "../pages/Post";
 import LogIn from "../pages/LogIn";
 import Register from "../pages/Register";
+import Write from "../pages/Write";
 
 export default function Router() {
     return(
@@ -13,6 +14,7 @@ export default function Router() {
                 <Route path="/post" element={<Post />} />
                 <Route path="/login" element={<LogIn />} />
                 <Route path="/auth/register" element={<Register />} />
+                <Route path="/write" element={<Write />} />
             </Routes>
         </BrowserRouter>
 
