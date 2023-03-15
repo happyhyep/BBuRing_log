@@ -1,5 +1,9 @@
 package com.BHC.TRAVEL.HYEN_SHAN.USER.PARAMS;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.repository.query.Param;
+
 public class Create_account_param {
     String id;
     String pw;
