@@ -4,6 +4,11 @@ public class Login_param {
     String id;
     String pw;
 
+    public Login_param(String id, String pw) {
+        this.id = id;
+        this.pw = pw;
+    }
+
     public String getId() {
         return id;
     }

@@ -7,9 +7,11 @@ import org.springframework.data.repository.query.Param;
 public class Create_account_param {
     String id;
     String pw;
-    String Nick;
+    String nick;
     String name;
-
+    public String getall(){
+        return name+" "+nick;
+    }
     public String getName() {
         return name;
     }
@@ -35,10 +37,10 @@ public class Create_account_param {
     }
 
     public String getNick() {
-        return Nick;
+        return nick;
     }
 
     public void setNick(String nick) {
-        Nick = nick;
+        this.nick = nick;
     }
 }

@@ -27,11 +27,8 @@ public class UserController {
 ;    @ResponseBody
     @PostMapping("register")
     public String Create_Account(@RequestBody Create_account_param param) throws JsonProcessingException {
-        System.out.println(param.getId()+'+'+param.getName());
-        Criteria criteria = new Criteria("ID");
-        criteria.is(param.getId());
-        Query query = new Query(criteria);
-        USER finding = mongoTemplate.findOne(query,USER.class,"USER");
+        Login_param test = new Login_param(param.getId(),param.getPw());
+        USER finding = repository.Finding(mongoTemplate,test);
         if(finding ==null){
         USER user = USER.builder().ID(param.getId()).password(param.getPw()).nickname(param.getNick()).name(param.getName()).build();
         mongoTemplate.insert(user);
@@ -47,9 +44,8 @@ public class UserController {
     @PostMapping("login")
     public String Login(@RequestBody Login_param param) throws JsonProcessingException {
         System.out.println(param.getId());
-        USER user =repository.Finding(param);
+        USER user =repository.Finding(mongoTemplate,param);
         if (user != null){
-
         if (user.getPassword().equals(param.getPw())){
             String tempText = objectMapper.writeValueAsString(user);
             return tempText;
@@ -64,17 +60,9 @@ public class UserController {
     @ResponseBody
     @PostMapping("modify")
     public String Modify(@RequestBody Login_param param) throws JsonProcessingException {
-        System.out.println(param.getId());
-        USER user = repository.Finding(param);
-        if (user != null){
-
-            if (user.getPassword().equals(param.getPw())){
-                String tempText = objectMapper.writeValueAsString(user);
-                return tempText;
-            }else{
-                return "틀린 비번";
-            }}
-        else return "없는 아이디";
+        repository.Modify_pw(mongoTemplate, param.getId(), param.getPw());
+        USER test = repository.Finding(mongoTemplate,param);
+        return objectMapper.writeValueAsString(test);
 
 
     }
