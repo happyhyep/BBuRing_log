@@ -43,19 +43,38 @@ function WriteImageComponent() {
     
     return(
         <>
-            <Image
-                src={imageFile ? imageFile :`http://www.bhc.co.kr/upload/bhc/menu/ck20150130_470_v.jpg`}
-                alt="이미지"
-            />
-            <ImageInput
-                type="file"
-                accept="image/jpg, image/jpeg, image/png"
-                ref={imageInput}
-                onChange={saveImageFile}
-                multiple="multiple"
-                style={{display: "none"}}></ImageInput>
-            <AddImageButton type="button" onClick={onButtonClick}>이미지 넣기</AddImageButton>
-            <button onClick={onWriteButtonClick}>업로드 완료</button>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center'
+            }}> 
+                <Image
+                    src={imageFile ? imageFile :`http://www.bhc.co.kr/upload/bhc/menu/ck20150130_470_v.jpg`}
+                    alt="이미지"
+                />
+            </div>
+            <div style={{
+                margin: 'auto',
+                display: 'flex',
+                width: '500px'
+            }}>
+                <ImageInput
+                    type="file"
+                    accept="image/jpg, image/jpeg, image/png"
+                    ref={imageInput}
+                    onChange={saveImageFile}
+                    multiple="multiple"
+                    style={{display: "none"}}></ImageInput>
+                <AddImageButton type="button" onClick={onButtonClick}>이미지 넣기</AddImageButton>
+            
+            </div>
+            <div style={{
+                margin: 'auto',
+                display: 'flex',
+                width: '500px',
+                alignItems: 'flex-end'
+            }}>
+                <button onClick={onWriteButtonClick}>저장</button>
+            </div>
         </>
     )
 
@@ -64,10 +83,9 @@ function WriteImageComponent() {
 export default WriteImageComponent;
 
 const Image = styled.img`
-    width: 500px;
 `
 const ImageInput = styled.input`
-
+    
 `
 
 const AddImageButton = styled.button`

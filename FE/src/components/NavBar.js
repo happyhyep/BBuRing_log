@@ -20,7 +20,7 @@ const TopMenu = styled.div`
     height: 10vh;
     display: flex;
     background-color: rgb(254,213,107);
-    
+    width: 100%;
     color: rgb(234,130,99);
 `
 

@@ -91,7 +91,7 @@ function MapContainer() {
         <div style={{margin: 'auto'}}>
             <div id="map" style={{
                 marginTop: '3rem',
-                width: '600px',
+                width: '50%',
                 height: '450px',
                 marginLeft: 'auto',
                 marginRight: 'auto',
