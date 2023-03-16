@@ -9,7 +9,6 @@ function SearchBar() {
     }
     const onSubmitHandler = (e) => {
         console.log(search);
-        
     }
 
     return(

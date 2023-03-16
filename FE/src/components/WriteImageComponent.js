@@ -6,6 +6,7 @@ import axios from "axios";
 function WriteImageComponent() {
     const [imageFile, setImageFile] = useState("")
     const [savedFile, setSavedFile] = useState("")
+    const [description, setDescription] = useState("")
     const imageInput = React.createRef();
   
     const saveImageFile = () => {
@@ -18,9 +19,12 @@ function WriteImageComponent() {
         setSavedFile(file);
     };
 
+    const onDescriptionHandler = (e) => {
+        setDescription(e.currentTarget.value)
+    }
+
     const onButtonClick = (e) => {
       imageInput.current.click();
-      
     };
 
     const onWriteButtonClick = async (e) => {
@@ -29,6 +33,23 @@ function WriteImageComponent() {
           "uploadImage",
           savedFile
         );
+        formData.append(
+            "uploadDescription",
+            description
+        );
+
+        {/*console.log(formData)    
+        //key 확인하기
+        for (let key of formData.keys()) {
+            console.log(key);
+        }
+
+        //value 확인하기
+        for (let value of formData.values()) {
+        console.log(value);
+        }
+        */}
+
         const postSurvey = axios({
             method: "POST",
             url: `http://192.168.214.127:8080/post/upload`,
@@ -65,7 +86,12 @@ function WriteImageComponent() {
                     multiple="multiple"
                     style={{display: "none"}}></ImageInput>
                 <AddImageButton type="button" onClick={onButtonClick}>이미지 넣기</AddImageButton>
-            
+            </div>
+            <div>
+                <DescriptionInput
+                    onChange={onDescriptionHandler}
+                    placeholder="글을 작성하세요.">
+                </DescriptionInput>
             </div>
             <div style={{
                 margin: 'auto',
@@ -83,6 +109,11 @@ function WriteImageComponent() {
 export default WriteImageComponent;
 
 const Image = styled.img`
+    width: 300px;
+    height: 300px;
+    margin-top: 30px;
+
+    border: 1px solid ;
 `
 const ImageInput = styled.input`
     
@@ -103,4 +134,11 @@ const AddImageButton = styled.button`
     cursor: pointer;
     user-select: none;
     transition: .2s all;
+`
+
+const DescriptionInput = styled.input`
+    width: 500px;
+    height: 300px;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(151,142,113);
 `
