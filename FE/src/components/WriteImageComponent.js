@@ -69,8 +69,9 @@ function WriteImageComponent() {
                 justifyContent: 'center'
             }}> 
                 <Image
-                    src={imageFile ? imageFile :`http://www.bhc.co.kr/upload/bhc/menu/ck20150130_470_v.jpg`}
+                    src={imageFile ? imageFile :`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSWSxsVpAmqb_T7CLGolJ193Bw9xh7X7r0yQ&usqp=CAU`}
                     alt="이미지"
+                    onDoubleClick={onButtonClick}
                 />
             </div>
             <div style={{
@@ -99,7 +100,7 @@ function WriteImageComponent() {
                 width: '500px',
                 alignItems: 'flex-end'
             }}>
-                <button onClick={onWriteButtonClick}>저장</button>
+                <SaveButton onClick={onWriteButtonClick}>저장</SaveButton>
             </div>
         </>
     )
@@ -113,7 +114,6 @@ const Image = styled.img`
     height: 300px;
     margin-top: 30px;
 
-    border: 1px solid ;
 `
 const ImageInput = styled.input`
     
@@ -121,9 +121,8 @@ const ImageInput = styled.input`
 
 const AddImageButton = styled.button`
     width: 100px;
-    border-radius: 0.3rem;
-    border: 1px solid ;
-    background-color: rgb(254,213,107);
+    border: 1px solid rgb(251,243,220);
+    background-color: rgb(251,243,220);
 
     margin-left: 1rem;
 
@@ -140,5 +139,23 @@ const DescriptionInput = styled.input`
     width: 500px;
     height: 300px;
     border-radius: 0.5rem;
-    border: 1px solid rgb(151,142,113);
+    border: 1px solid rgb(252,214,131);
+
+    font-size: 15px;
+    color: rgb(234,130,99);
+`
+const SaveButton = styled.button`
+    width: 50px;
+    border: 1px solid rgb(251,243,220);
+    background-color: rgb(251,243,220);
+
+    margin-left: 1rem;
+
+    font-size: 15px;
+    color: rgb(234,130,99);
+    text-align: center;
+
+    cursor: pointer;
+    user-select: none;
+    transition: .2s all;
 `
