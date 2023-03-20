@@ -2,6 +2,7 @@ package com.BHC.TRAVEL.HYEN_SHAN.USER;
 
 import com.BHC.TRAVEL.HYEN_SHAN.USER.MODEL.USER;
 import com.BHC.TRAVEL.HYEN_SHAN.USER.PARAMS.Create_account_param;
+import com.BHC.TRAVEL.HYEN_SHAN.USER.PARAMS.Home_param;
 import com.BHC.TRAVEL.HYEN_SHAN.USER.PARAMS.Login_param;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,12 +43,12 @@ public class UserController {
 
     @ResponseBody
     @PostMapping("login")
-    public String Login(@RequestBody Login_param param) throws JsonProcessingException {
+    public Home_param Login(@RequestBody Login_param param) throws JsonProcessingException {
         System.out.println(param.getId());
         USER user =repository.Finding(mongoTemplate,param);
         if (user != null){
         if (user.getPassword().equals(param.getPw())){
-            String tempText = objectMapper.writeValueAsString(user);
+            Home_param home = new Home_param();
             return tempText;
         }else{
             return "틀린 비번";
