@@ -28,8 +28,8 @@ const WriteButton = styled.button`
 
     width: 100px;
     border-radius: 0.3rem;
-    border: 1px solid ;
-    background-color: rgb(254,213,107);
+    border: 1.2px solid rgb(252,214,131);
+    background-color: rgb(251,243,220);
 
     font-size: 15px;
     color: rgb(234,130,99);

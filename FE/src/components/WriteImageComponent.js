@@ -52,7 +52,7 @@ function WriteImageComponent() {
 
         const postSurvey = axios({
             method: "POST",
-            url: `http://192.168.214.127:8080/post/upload`,
+            url: `http://172.16.251.12:8080/post/upload`,
             mode: "cors",
             headers: {
                 "Content-Type": "multipart/form-data", // Content-Type을 반드시 이렇게 하여야 한다.
@@ -77,7 +77,8 @@ function WriteImageComponent() {
             <div style={{
                 margin: 'auto',
                 display: 'flex',
-                width: '500px'
+                width: '500px',
+                justifyContent: 'center'
             }}>
                 <ImageInput
                     type="file"
@@ -88,7 +89,10 @@ function WriteImageComponent() {
                     style={{display: "none"}}></ImageInput>
                 <AddImageButton type="button" onClick={onButtonClick}>이미지 넣기</AddImageButton>
             </div>
-            <div>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center'
+            }}>
                 <DescriptionInput
                     onChange={onDescriptionHandler}
                     placeholder="글을 작성하세요.">
@@ -98,7 +102,7 @@ function WriteImageComponent() {
                 margin: 'auto',
                 display: 'flex',
                 width: '500px',
-                alignItems: 'flex-end'
+                justifyContent: 'center'
             }}>
                 <SaveButton onClick={onWriteButtonClick}>저장</SaveButton>
             </div>
@@ -113,7 +117,6 @@ const Image = styled.img`
     width: 300px;
     height: 300px;
     margin-top: 30px;
-
 `
 const ImageInput = styled.input`
     

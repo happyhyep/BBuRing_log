@@ -24,7 +24,7 @@ export default function RegisterComponent() {
     }
     const onSubmitHandler = (e) => {
         //registerUser({name: name, id: id, pw: password, Nick: nickname})
-        axios.post(`http://172.16.251.192:8080/user/register`, {name: name, id: id, pw: password, Nick: nickname})
+        axios.post(`http://172.16.251.12:8080/user/register`, {name: name, id: id, pw: password, nick: nickname})
         e.preventDefault(); //submit 했을 떄 리프레쉬 방지
         console.log(name, id, password, nickname);
     }
