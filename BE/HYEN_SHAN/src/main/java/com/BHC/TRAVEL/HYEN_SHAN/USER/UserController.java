@@ -48,12 +48,16 @@ public class UserController {
         USER user =repository.Finding(mongoTemplate,param);
         if (user != null){
         if (user.getPassword().equals(param.getPw())){
-            Home_param home = new Home_param();
-            return tempText;
+            Home_param home = new Home_param(Boolean.FALSE,"none",param.getId(),param.getPw(),user.getName(),user.getNickname());
+            return home;
         }else{
-            return "틀린 비번";
+            Home_param false_home = new Home_param(Boolean.TRUE,"틀린 비밀번호",null,null,null,null);
+            return false_home;
         }}
-        else return "없는 아이디";
+        else {
+            Home_param false_home = new Home_param(Boolean.TRUE,"없는 아이디",null,null,null,null);
+            return false_home;
+        }
 
 
     }
