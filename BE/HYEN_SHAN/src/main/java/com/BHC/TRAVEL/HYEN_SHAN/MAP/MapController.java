@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/map")
@@ -27,15 +28,15 @@ public class MapController {
     ObjectMapper objectMapper = new ObjectMapper();
     @ResponseBody
     @GetMapping("search")
-    public MapDTO Search(@RequestParam String item) throws JsonEOFException {
+    public List<MapDTO> Search(@RequestParam String item) throws JsonEOFException {
         System.out.println("item = " + item);
         Criteria criteria = new Criteria("address_name");
-        criteria.is("서울 종로구 관철동 14-1");
+        criteria.regex("^.*(" + item+").*");
         Query query = new Query(criteria);
-        System.out.println(mongoTemplate.findOne(query,MapDTO.class,"MAP"));
-        return mongoTemplate.findOne(query, MapDTO.class,"MAP");
+        List<MapDTO> test = mongoTemplate.find(query, MapDTO.class, "MAP");
+        test.forEach(name ->
+                System.out.println("name = " + name));
+
+        return test;
     }
-
-
-
 }
