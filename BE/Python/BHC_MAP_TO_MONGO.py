@@ -13,4 +13,7 @@ if collection.find_one()==None:
         for map in resData['documents']:
             collection.insert_one(map)
             count+=1
+
+
+
     print(count)
