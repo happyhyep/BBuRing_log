@@ -17,17 +17,9 @@ public class MapDTO {
     private String _id;
     private String y;
     private String x;
-    private String road_address_name;
-    private String place_url;
-    private String place_name;
+    private String name;
     private String phone;
-    private String id;
-    @Nullable
-    private String distance;
-    private String category_name;
-    private String category_group_name;
-    private String category_group_code;
-    private String address_name;
+    private String address;
 
 
 }

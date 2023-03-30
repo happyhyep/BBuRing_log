@@ -15,7 +15,7 @@ API_KEY ='8D666D83-E9AC-3A40-9D46-788E56CABC1F'
 # loc = resData['response']['result']['items'][0]['point']
 # print(loc['x'],loc['y'])
 
-dr = webdriver.Chrome(executable_path="C:/Users/SIHWAN/Desktop/chromedriver_win32/chromedriver.exe")
+dr = webdriver.Chrome()
 dr.get('https://www.bhc.co.kr/location/search.asp')
 act = ActionChains(dr)
 lst = []

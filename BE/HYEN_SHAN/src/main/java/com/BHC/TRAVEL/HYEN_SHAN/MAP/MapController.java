@@ -30,10 +30,20 @@ public class MapController {
     @GetMapping("search")
     public List<MapDTO> Search(@RequestParam String item) throws JsonEOFException {
         System.out.println("item = " + item);
-        Criteria criteria = new Criteria("address_name");
+        Criteria criteria = new Criteria("address");
         criteria.regex("^.*(" + item+").*");
         Query query = new Query(criteria);
         List<MapDTO> test = mongoTemplate.find(query, MapDTO.class, "MAP");
+
+        Criteria criteria2 = new Criteria("name");
+        criteria2.regex("^.*(" + item+").*");
+        Query query2 = new Query(criteria2);
+
+        List<MapDTO> test2 = mongoTemplate.find(query2,MapDTO.class,"MAP");
+        for(MapDTO a : test2){
+            test.add(a);
+        }
+
         test.forEach(name ->
                 System.out.println("name = " + name));
 
