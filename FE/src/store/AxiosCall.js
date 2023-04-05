@@ -1,27 +1,30 @@
 import axios from 'axios';
 
+export const instance = axios.create({
+    baseURL : 'http://localhost:8080'
+})
 
 export const getAxios = (endPoint, data = {}, config = {}) =>
     axios({
-        url: `http://172.16.251.79:8080${endPoint}`,
+        url: `http://localhost:8080${endPoint}`,
         method: 'get',
         withCredentials: true,
         data: data,
         ...config,
     });
 
-export const postAxios = (endPoint, params = {}, config = {}) =>
+export const postAxios = (endPoint, data = {}, config = {}) =>
     axios({
-        url: `http://172.16.251.79:8080${endPoint}`,
+        url: `http://localhost:8080${endPoint}`,
         method: 'POST',
         withCredentials: true,
-        data: params,
+        data: data,
         ...config,
     });
 
 export const deleteAxios = (endPoint) =>
     axios({
-        url: `http://172.16.251.79:8080${endPoint}`,
+        url: `http://localhost:8080${endPoint}`,
         method: 'DELETE',
         withCredentials: true,
     });

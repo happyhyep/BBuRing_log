@@ -1,6 +1,6 @@
 import React from "react";
-import NavBar from "../components/NavBar";
-import WriteImageComponent from "../components/WriteImageComponent";
+import NavBar from "../components/Common/NavBar";
+import WriteImageComponent from "../components/Write/WriteImageComponent";
 
 export default function Write(){
     return (

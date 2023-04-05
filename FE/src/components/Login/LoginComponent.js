@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import { loginUser } from "../../store/User";
 
-export default function LoginComponent() {
+export default function LoginComponent({auth}) {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
+    const [userInfo, setUserInfo] = useState();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const onIdHandler = (e) => {
         setId(e.currentTarget.value)
@@ -14,12 +17,20 @@ export default function LoginComponent() {
         setPassword(e.currentTarget.value)
     }
     const onSubmitHandler = (e) => {
-        axios.post(`http://172.16.251.12:8080/user/login`, {id: id, pw: password})
+        loginUser({id: id, pw: password})
         .then((res) => {
-            console.log(res.data)
+            if(res.data.error === false)
+                {
+                    console.log(res.data);
+                    alert("로그인 성공");
+                    setIsLoggedIn(true);
+                    setUserInfo(res.data);
+                    auth = userInfo;
+                }
+            else{
+                alert(res.data.error_message);
+            }
         })
-        e.preventDefault(); //submit 했을 떄 리프레쉬 방지
-        console.log(id, password);
     }
 
     return(

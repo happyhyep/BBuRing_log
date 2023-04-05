@@ -52,7 +52,7 @@ function WriteImageComponent() {
 
         const postSurvey = axios({
             method: "POST",
-            url: `http://172.16.251.12:8080/post/upload`,
+            url: `http://localhost:8080/post/upload`,
             mode: "cors",
             headers: {
                 "Content-Type": "multipart/form-data", // Content-Type을 반드시 이렇게 하여야 한다.

@@ -1,7 +1,7 @@
 import React from "react";
-import NavBar from "../components/NavBar";
-import MapContainer from "../components/MapContainer";
-import SearchBar from "../components/SearchBar";
+import NavBar from "../components/Common/NavBar";
+import MapContainer from "../components/Home/MapContainer";
+import SearchBar from "../components/Home/SearchBar";
 import styled from "styled-components";
 import { useNavigate } from "react-router";
 
