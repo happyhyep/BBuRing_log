@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { fetchAllMapAPI } from "../../store/MapSearch";
+import axios from "axios";
 
 function SearchBar() {
     const [searchText, setSearchText] = useState('')
     const [searchedList, setSearchedList] = useState([]);
+    const [bhcList, setBhcList] = useState([]);
 
-    const bhc_list = [
-        {name: "가나다"},
-        {name: "수원 영통"},
-        {name: "용인 서천"},
-        {name: "강원도"},
-    ]
     const onSearchHandler = (e) => {
         setSearchText(e.currentTarget.value);
     }
     const onSubmitHandler = (e) => {
-        console.log(searchText);
+        //console.log(searchText);
     }
     useEffect(() => {
-        console.log(searchText);
-        const filteredList = bhc_list.filter((search) => {
+        //console.log(searchText);
+        fetchAllMapAPI()
+        .then((res) => {
+                setBhcList(res.data);
+            return res.data;
+        })
+        const filteredList = bhcList.filter((search) => {
             if (searchText === '' || searchText === null) {
                 return search;
             } else {
@@ -39,7 +41,6 @@ function SearchBar() {
                             {searchedList.map((search) => (
                                 //<div>{search}</div>
                                 <AutoSearchData
-                                    key={search.name}
                                     onClick={() => {
                                         setSearchText(search.name);
                                     }}
