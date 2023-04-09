@@ -4,7 +4,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { loginUser } from "../../store/User";
 
-export default function LoginComponent({auth}) {
+export default function LoginComponent({}) {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [userInfo, setUserInfo] = useState();
@@ -25,7 +25,7 @@ export default function LoginComponent({auth}) {
                     alert("로그인 성공");
                     setIsLoggedIn(true);
                     setUserInfo(res.data);
-                    auth = userInfo;
+                    //auth = userInfo;
                 }
             else{
                 alert(res.data.error_message);
@@ -47,7 +47,7 @@ export default function LoginComponent({auth}) {
                     <Input type="password" id="password" onChange={onPwHandler} placeholder="비밀번호"></Input>
                 </form>            
             </Contents>
-            <Button type="submit" onClick={onSubmitHandler}>로그인</Button>
+            <Button type="submit" onClick={onSubmitHandler}>로그인하기</Button>
 
             <RegisterLink><NavLink to="/auth/register">회원가입</NavLink></RegisterLink>
             
