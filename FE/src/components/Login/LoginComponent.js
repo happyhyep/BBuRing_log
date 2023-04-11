@@ -47,7 +47,7 @@ export default function LoginComponent({}) {
                     <Input type="password" id="password" onChange={onPwHandler} placeholder="비밀번호"></Input>
                 </form>            
             </Contents>
-            <Button type="submit" onClick={onSubmitHandler}>로그인</Button>
+            <Button type="submit" onClick={onSubmitHandler}>로그인하기</Button>
 
             <RegisterLink><NavLink to="/auth/register">회원가입</NavLink></RegisterLink>
             
