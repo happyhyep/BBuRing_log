@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import NavBar from "../components/NavBar";
-import RegisterComponent from "../components/RegisterComponent";
+import NavBar from "../components/Common/NavBar";
+import RegisterComponent from "../components/Register/RegisterComponent";
 export default function Register() {
     return(
         <>
