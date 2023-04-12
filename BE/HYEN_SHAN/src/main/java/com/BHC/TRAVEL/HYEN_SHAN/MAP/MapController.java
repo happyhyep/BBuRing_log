@@ -49,4 +49,14 @@ public class MapController {
 
         return test;
     }
+
+
+    @ResponseBody
+    @GetMapping("all")
+    public List<MapDTO> all() throws JsonEOFException {
+        List<MapDTO> test = mongoTemplate.findAll(MapDTO.class, "MAP");
+
+
+        return test;
+    }
 }
