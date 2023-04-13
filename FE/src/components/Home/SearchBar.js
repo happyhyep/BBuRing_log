@@ -1,17 +1,31 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+<<<<<<< HEAD
 import { fetchAllMapAPI } from "../../store/MapSearch";
 import axios from "axios";
+=======
+>>>>>>> d6b23528 (searchbar 드롭박스 구현)
 
 function SearchBar() {
     const [searchText, setSearchText] = useState('')
     const [searchedList, setSearchedList] = useState([]);
+<<<<<<< HEAD
     const [bhcList, setBhcList] = useState([]);
 
+=======
+
+    const bhc_list = [
+        {name: "가나다"},
+        {name: "수원 영통"},
+        {name: "용인 서천"},
+        {name: "강원도"},
+    ]
+>>>>>>> d6b23528 (searchbar 드롭박스 구현)
     const onSearchHandler = (e) => {
         setSearchText(e.currentTarget.value);
     }
     const onSubmitHandler = (e) => {
+<<<<<<< HEAD
         //console.log(searchText);
     }
     useEffect(() => {
@@ -22,6 +36,13 @@ function SearchBar() {
             return res.data;
         })
         const filteredList = bhcList.filter((search) => {
+=======
+        console.log(searchText);
+    }
+    useEffect(() => {
+        console.log(searchText);
+        const filteredList = bhc_list.filter((search) => {
+>>>>>>> d6b23528 (searchbar 드롭박스 구현)
             if (searchText === '' || searchText === null) {
                 return search;
             } else {
@@ -41,6 +62,10 @@ function SearchBar() {
                             {searchedList.map((search) => (
                                 //<div>{search}</div>
                                 <AutoSearchData
+<<<<<<< HEAD
+=======
+                                    key={search.name}
+>>>>>>> d6b23528 (searchbar 드롭박스 구현)
                                     onClick={() => {
                                         setSearchText(search.name);
                                     }}

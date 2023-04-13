@@ -4,7 +4,8 @@ import styled from "styled-components";
 import axios from "axios";
 import { loginUser } from "../../store/User";
 
-export default function LoginComponent({}) {
+export default function LoginComponent({auth}) {
+>>>>>>> d6b23528 (searchbar 드롭박스 구현)
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [userInfo, setUserInfo] = useState();
@@ -25,7 +26,7 @@ export default function LoginComponent({}) {
                     alert("로그인 성공");
                     setIsLoggedIn(true);
                     setUserInfo(res.data);
-                    //auth = userInfo;
+                    auth = userInfo;
                 }
             else{
                 alert(res.data.error_message);

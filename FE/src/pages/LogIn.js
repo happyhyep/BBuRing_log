@@ -6,7 +6,7 @@ export default function LogIn() {
     return(
         <>
             <NavBar></NavBar>
-            <div style={{margin: 'auto'}}><LoginComponent></LoginComponent></div>
+            <div style={{margin: 'auto'}}><LoginComponent auth={auth}></LoginComponent></div>
         </>
     )
 }
