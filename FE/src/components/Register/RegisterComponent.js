@@ -26,7 +26,7 @@ export default function RegisterComponent() {
         registerUser({name: name, id: id, pw: password, nick: nickname})
         //axios.post(`http://localhost:8080/user/register`, {name: name, id: id, pw: password, nick: nickname})
         e.preventDefault(); //submit 했을 떄 리프레쉬 방지
-        console.log(name, id, password, nickname);
+        window.location.replace('/');
     }
     return(
         <Positioner>

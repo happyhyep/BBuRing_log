@@ -5,7 +5,7 @@ import NavBar from "../components/Common/NavBar";
 export default function Post() {
     return(
         <NavBar>
-            <div><NavLink to='/'>Home</NavLink></div>
+            <div><NavLink to='/'></NavLink></div>
         </NavBar>
     )
 }

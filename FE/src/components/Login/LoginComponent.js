@@ -4,8 +4,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { loginUser } from "../../store/User";
 
-export default function LoginComponent({auth}) {
->>>>>>> d6b23528 (searchbar 드롭박스 구현)
+export default function LoginComponent() {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [userInfo, setUserInfo] = useState();
@@ -23,11 +22,15 @@ export default function LoginComponent({auth}) {
             if(res.data.error === false)
                 {
                     console.log(res.data);
-                    alert("로그인 성공");
                     setIsLoggedIn(true);
                     setUserInfo(res.data);
-                    auth = userInfo;
+                    localStorage.clear()
+                    localStorage.setItem("id", res.data.id)
+                    localStorage.setItem("nickname", res.data.nick)
+                    localStorage.setItem("name", res.data.name)
+                    window.location.replace('/');
                 }
+
             else{
                 alert(res.data.error_message);
             }
@@ -49,7 +52,7 @@ export default function LoginComponent({auth}) {
                 </form>            
             </Contents>
             <Button type="submit" onClick={onSubmitHandler}>로그인</Button>
-
+            <div><NavLink to='/'></NavLink></div>
             <RegisterLink><NavLink to="/auth/register">회원가입</NavLink></RegisterLink>
             
         </Positioner>

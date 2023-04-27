@@ -3,6 +3,19 @@
   color: #F5F1F1;
   background-color: #E9AC06;
   height: 80vh;
+
+  @font-face {
+    font-family: 'UhBeeZZIBA-Regular';
+    src: url('../src/fonts/UhBeeZZIBA-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'KotraHope';
+    src: url('../src/fonts/KotraHope.ttf');
+  }
+    
 }
 
 .Title {

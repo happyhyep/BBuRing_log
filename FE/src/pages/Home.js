@@ -32,6 +32,7 @@ const WriteButton = styled.button`
     background-color: rgb(251,243,220);
 
     font-size: 15px;
+    font-family: UhBeeZZIBA-Regular;
     color: rgb(234,130,99);
     text-align: center;
 
