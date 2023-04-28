@@ -57,6 +57,7 @@ const Input = styled.input`
     height: 30px;
     border-radius: 0.5rem;
     border: 1px solid rgb(151,142,113);
+    font-family: UhBeeZZIBA-Regular;
     
 `
 
@@ -75,6 +76,7 @@ background-color: rgb(254,213,107);
 margin-left: 1rem;
 
 font-size: 15px;
+font-family: UhBeeZZIBA-Regular;
 color: rgb(234,130,99);
 text-align: center;
 

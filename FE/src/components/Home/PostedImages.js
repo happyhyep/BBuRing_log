@@ -1,14 +1,14 @@
 import React from "react";
 import PostedImageComponent from "./PostedImageComponent";
 
-function PostedImages() {
+function PostedImages(props) {
 
     return(
         <div style={{
             width: '575px',
             margin: '0 auto',
             marginTop: '50px',
-        }}><PostedImageComponent /></div>
+        }}><PostedImageComponent nowClickedMarker={props}/></div>
     )
 }
 

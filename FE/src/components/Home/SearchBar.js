@@ -118,6 +118,7 @@ const AutoSearchData = styled.li`
   width: 100%;
   height: 5px;
   font-size: 14px;
+  font-family: UhBeeZZIBA-Regular;
   font-weight: bold;
   z-index: 4;
   letter-spacing: 2px;

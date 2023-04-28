@@ -76,7 +76,7 @@ const Logo = styled.div`
     border-top-right-radius: 0.5rem;
 
     color: rgb(234,156,094);
-    font-family: 'Rajdhani';
+    font-family: UhBeeZZIBA-Regular;
     font-size: 2.4rem;
     letter-spacing: 5px;
     text-decoration: none;
@@ -86,7 +86,7 @@ const Contents = styled.div`
     background: white;
     padding: 2rem;
     height: auto;
-    
+    font-family: UhBeeZZIBA-Regular;
 `;
 
 const Input = styled.input`
@@ -100,11 +100,13 @@ const Input = styled.input`
     margin-right: 1rem;
 
     font-size: 1.2rem;
+    font-family: UhBeeZZIBA-Regular;
     color: rgb(151,142,113);
 `;
 
 const Label = styled.label`
     font-size: 0.8rem;
+    font-family: UhBeeZZIBA-Regular;
     color: grey;
 `
 
@@ -124,6 +126,7 @@ const Button = styled.button`
     text-align: center;
     font-size: 1rem;
     font-weight: 500;
+    font-family: UhBeeZZIBA-Regular;
 
     cursor: pointer;
     user-select: none;
@@ -137,5 +140,6 @@ const RegisterLink = styled.div`
 
     text-align: right;
     font-size: 0.8rem;
+    font-family: UhBeeZZIBA-Regular;
     color: grey;
 `

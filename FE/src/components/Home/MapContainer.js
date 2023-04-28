@@ -123,7 +123,7 @@ function MapContainer() {
             </div>
             {is_marker_clicked ? (
                 <div>
-                    <div><PostedImages></PostedImages></div>
+                    <div><PostedImages nowClickedMarker={nowClickedMarker}></PostedImages></div>
                     <div><WriteButton onClick={()=>onWriteButton(nowClickedMarker)}>✍️ 글 쓰기</WriteButton></div>
                 </div>)
                 : null}
@@ -152,6 +152,7 @@ const MapControlBtn = styled.div`
   align-items: center;
   text-align:center;
   cursor:pointer;
+  font-family: UhBeeZZIBA-Regular;
 `
 
 const WriteButton = styled.button`

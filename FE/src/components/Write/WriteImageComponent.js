@@ -3,13 +3,13 @@ import styled from "styled-components";
 import axios from "axios";
 import { uploadPost } from "../../store/Write";
 
-
 function WriteImageComponent(props) {
     const [imageFile, setImageFile] = useState("")
     const [savedFile, setSavedFile] = useState("")
     const [description, setDescription] = useState("")
     const imageInput = React.createRef();
-  
+    const [star, setStar] = useState();
+
     const saveImageFile = () => {
         const file = imageInput.current.files[0];
         const reader = new FileReader();
@@ -38,7 +38,7 @@ function WriteImageComponent(props) {
             "uploadDescription",
             description
         );
-        uploadPost(props.nowClickedMarker, formData);
+        uploadPost(props.nowClickedMarker, star, formData);
         {/*console.log(formData)    
         //key 확인하기
         for (let key of formData.keys()) {
@@ -56,7 +56,7 @@ function WriteImageComponent(props) {
             url: `http://localhost:8080/post/upload`,
             mode: "cors",
             headers: {
-                "Content-Type": "multipart/form-data", // Content-Type을 반드시 이렇게 하여야 한다.
+                "Content-Type": "multipart/form-data",
             },
             data: formData, // data 전송시에 반드시 생성되어 있는 formData 객체만 전송 하여야 한다.
         });
@@ -131,6 +131,7 @@ const AddImageButton = styled.button`
     margin-left: 1rem;
 
     font-size: 15px;
+    font-family: UhBeeZZIBA-Regular;
     color: rgb(234,130,99);
     text-align: center;
 
@@ -146,6 +147,7 @@ const DescriptionInput = styled.input`
     border: 1px solid rgb(252,214,131);
 
     font-size: 15px;
+    font-family: UhBeeZZIBA-Regular;
     color: rgb(234,130,99);
 `
 const SaveButton = styled.button`
@@ -156,6 +158,7 @@ const SaveButton = styled.button`
     margin-left: 1rem;
 
     font-size: 15px;
+    font-family: UhBeeZZIBA-Regular;
     color: rgb(234,130,99);
     text-align: center;
 

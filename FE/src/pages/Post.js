@@ -1,11 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import NavBar from "../components/Common/NavBar";
+import PostComponent from "../components/Post/PostComponent";
 
 export default function Post() {
     return(
-        <NavBar>
-            <div><NavLink to='/'></NavLink></div>
-        </NavBar>
+        <>
+        <NavBar></NavBar>
+        <PostComponent></PostComponent>
+        </>
     )
 }
