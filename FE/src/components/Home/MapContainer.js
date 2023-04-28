@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import PostedImages from "./PostedImages";
 import styled from "styled-components";
+import { getMyLocation } from "../../store/MapSearch";
+import Write from "../../pages/Write";
 
 
 const {kakao} = window;
 
 function MapContainer() {
+    const [myPositions, setMyPositions] = useState([]);
     const positions = [
         {
             title: "용인 서천",
@@ -19,6 +22,13 @@ function MapContainer() {
             lng: 127.076500
         }
     ];
+    //api 등록 후 아래 모든 positions를 myPositions로 바꿔주기
+    useEffect(() => {
+        getMyLocation(localStorage.getItem('id'))
+        .then((res) => {
+            setMyPositions(res.title, res.x, res.y)
+        })
+    })
 
     const imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
     const [_map, setMap] = useState();
@@ -54,7 +64,7 @@ function MapContainer() {
             kakao.maps.event.addListener(
                     marker,
                     'click',
-                    MarkerClick()
+                    MarkerClick(marker, el.title)
             );
             marker.setMap(map);
         }, []);
@@ -71,10 +81,13 @@ function MapContainer() {
             };
           }
 
-        let [is_marker_clicked, set_marker_clicked] = useState(false)
-        function MarkerClick() {
+        let [is_marker_clicked, set_marker_clicked] = useState(false);
+        let [nowClickedMarker, setNowClickedMarker] = useState();
+
+        function MarkerClick(marker, title) {
             return function() {
                 set_marker_clicked(!is_marker_clicked)
+                setNowClickedMarker(title);
             }
         }
 
@@ -86,6 +99,12 @@ function MapContainer() {
           const zoomOut = () => {
             _map.setLevel(_map.getLevel() + 1);
           }
+
+    const navigate = useNavigate();
+    const onWriteButton = (nowClickedMarker) => {
+        navigate('/write', {state: 
+            {marker: nowClickedMarker}})
+    }
 
     return (
         <div style={{margin: 'auto'}}>
@@ -102,7 +121,12 @@ function MapContainer() {
                 <MapControlBtn  onClick={zoomOut}  >-</MapControlBtn>
             </MapBtnContainer>
             </div>
-            {is_marker_clicked ? <div><PostedImages></PostedImages></div> : null}
+            {is_marker_clicked ? (
+                <div>
+                    <div><PostedImages></PostedImages></div>
+                    <div><WriteButton onClick={()=>onWriteButton(nowClickedMarker)}>✍️ 글 쓰기</WriteButton></div>
+                </div>)
+                : null}
         </div>
     )
 }
@@ -128,4 +152,24 @@ const MapControlBtn = styled.div`
   align-items: center;
   text-align:center;
   cursor:pointer;
+`
+
+const WriteButton = styled.button`
+    position : fixed;
+    bottom :5%;
+    right : 2rem;
+
+    width: 100px;
+    border-radius: 0.3rem;
+    border: 1.2px solid rgb(252,214,131);
+    background-color: rgb(251,243,220);
+
+    font-size: 15px;
+    font-family: UhBeeZZIBA-Regular;
+    color: rgb(234,130,99);
+    text-align: center;
+
+    cursor: pointer;
+    user-select: none;
+    transition: .2s all;
 `

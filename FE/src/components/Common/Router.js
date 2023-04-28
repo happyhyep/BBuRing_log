@@ -20,7 +20,7 @@ export default function Router() {
                 <Route path="/login" element={<LogIn />} />
                 <Route path="/auth/register" element={<Register />} />
                 <Route path="/user/info" element={<UserInfo />} />
-                <Route path="/write" element={<Write />} />
+                <Route path='/write' element={<Write />} />
                 <Route path="/searchfriend" element={<SearchFriend />} />
             </Routes>
         </BrowserRouter>

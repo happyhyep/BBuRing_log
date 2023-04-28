@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { fetchAllMapAPI } from "../../store/MapSearch";
+import { AddMyLocation, fetchAllMapAPI } from "../../store/MapSearch";
 import axios from "axios";
 
 function SearchBar() {
     const [searchText, setSearchText] = useState('')
     const [searchedList, setSearchedList] = useState([]);
     const [bhcList, setBhcList] = useState([]);
+    const [locationX, setLocationX] = useState([]);
+    const [locationY, setLocationY] = useState([]);
 
     const onSearchHandler = (e) => {
         setSearchText(e.currentTarget.value);
     }
     const onSubmitHandler = (e) => {
         //console.log(searchText);
+        AddMyLocation(localStorage.getItem('id'),locationX, locationY);
     }
     useEffect(() => {
         //console.log(searchText);
@@ -43,6 +46,8 @@ function SearchBar() {
                                 <AutoSearchData
                                     onClick={() => {
                                         setSearchText(search.name);
+                                        setLocationX(search.x);
+                                        setLocationY(search.y);
                                     }}
                                 >{search.name}</AutoSearchData>
                             ))}

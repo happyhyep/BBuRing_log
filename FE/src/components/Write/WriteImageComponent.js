@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { uploadPost } from "../../store/Write";
 
 
-function WriteImageComponent() {
+function WriteImageComponent(props) {
     const [imageFile, setImageFile] = useState("")
     const [savedFile, setSavedFile] = useState("")
     const [description, setDescription] = useState("")
@@ -37,7 +38,7 @@ function WriteImageComponent() {
             "uploadDescription",
             description
         );
-
+        uploadPost(props.nowClickedMarker, formData);
         {/*console.log(formData)    
         //key 확인하기
         for (let key of formData.keys()) {
@@ -67,7 +68,7 @@ function WriteImageComponent() {
             <div style={{
                 display: 'flex',
                 justifyContent: 'center'
-            }}> 
+            }}><div>{props.nowClickedMarker}</div>
                 <Image
                     src={imageFile ? imageFile :`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSWSxsVpAmqb_T7CLGolJ193Bw9xh7X7r0yQ&usqp=CAU`}
                     alt="이미지"
