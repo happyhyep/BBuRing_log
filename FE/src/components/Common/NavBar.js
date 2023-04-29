@@ -30,6 +30,7 @@ export default NavBar;
 const TopMenu = styled.div`
     height: 10vh;
     display: flex;
+    justify-content: center;
     background-color: rgb(252,214,131);
     width: 100%;
     color: rgb(234,130,99);
