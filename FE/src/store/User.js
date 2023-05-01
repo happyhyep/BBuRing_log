@@ -7,4 +7,4 @@ export const registerUser = (data) => {return instance.post('/user/register', da
 export const loginUser = (userIdPw) => {return instance.post('/user/login', userIdPw)}
 
 
-export const fetchAllUser = () => getAxios('/allusers')
+export const fetchAllUser = () => getAxios('/user/fetch')

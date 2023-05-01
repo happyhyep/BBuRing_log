@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { AddMyLocation, fetchAllMapAPI } from "../../store/MapSearch";
+import { addMyLocation, fetchAllMapAPI } from "../../store/MapSearch";
 import axios from "axios";
 
 function SearchBar() {
@@ -15,7 +15,7 @@ function SearchBar() {
     }
     const onSubmitHandler = (e) => {
         //console.log(searchText);
-        AddMyLocation(localStorage.getItem('id'),locationX, locationY);
+        addMyLocation(localStorage.getItem('id'),locationX, locationY);
     }
     useEffect(() => {
         //console.log(searchText);

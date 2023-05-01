@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { fetchAllUser } from "../../store/User";
-import { requestFriend } from "../../store/Friend";
+import { requestGroup } from "../../store/Group";
 
 export default function SearchFriendComponent() {
     const [searchText, setSearchText] = useState('')
@@ -34,7 +34,7 @@ export default function SearchFriendComponent() {
         )
     }
     const onRequestHandler = () => {
-        requestFriend();
+        requestGroup();
         console.log("요청 완료")
     }
 
