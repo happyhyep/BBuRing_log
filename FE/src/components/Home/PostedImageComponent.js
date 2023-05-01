@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { fetchAllPosts } from "../../store/Write";
+import { motion } from "framer-motion"
 
 function PostedImageComponent(props) {
     const images = ['http://www.bhc.co.kr/upload/bhc/menu/ck20150130_470_v.jpg',

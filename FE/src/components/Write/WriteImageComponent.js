@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { uploadPost } from "../../store/Write";
+import {motion} from 'framer-motion';
 
 function WriteImageComponent(props) {
     const [imageFile, setImageFile] = useState("")
@@ -65,48 +66,56 @@ function WriteImageComponent(props) {
     
     return(
         <>
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center'
-            }}><div>{props.nowClickedMarker}</div>
-                <Image
-                    src={imageFile ? imageFile :`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSWSxsVpAmqb_T7CLGolJ193Bw9xh7X7r0yQ&usqp=CAU`}
-                    alt="이미지"
-                    onDoubleClick={onButtonClick}
-                />
-            </div>
-            <div style={{
-                margin: 'auto',
-                display: 'flex',
-                width: '500px',
-                justifyContent: 'center'
-            }}>
-                <ImageInput
-                    type="file"
-                    accept="image/jpg, image/jpeg, image/png"
-                    ref={imageInput}
-                    onChange={saveImageFile}
-                    multiple="multiple"
-                    style={{display: "none"}}></ImageInput>
-                <AddImageButton type="button" onClick={onButtonClick}>이미지 넣기</AddImageButton>
-            </div>
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center'
-            }}>
-                <DescriptionInput
-                    onChange={onDescriptionHandler}
-                    placeholder="글을 작성하세요.">
-                </DescriptionInput>
-            </div>
-            <div style={{
-                margin: 'auto',
-                display: 'flex',
-                width: '500px',
-                justifyContent: 'center'
-            }}>
-                <SaveButton onClick={onWriteButtonClick}>저장</SaveButton>
-            </div>
+         <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.1,
+          delay: 0.05,
+          ease: [0.71, 0.71, 0.2, 1.01]}} >
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'center'
+                }}><div>{props.nowClickedMarker}</div>
+                    <Image
+                        src={imageFile ? imageFile :`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSWSxsVpAmqb_T7CLGolJ193Bw9xh7X7r0yQ&usqp=CAU`}
+                        alt="이미지"
+                        onDoubleClick={onButtonClick}
+                    />
+                </div>
+                <div style={{
+                    margin: 'auto',
+                    display: 'flex',
+                    width: '500px',
+                    justifyContent: 'center'
+                }}>
+                    <ImageInput
+                        type="file"
+                        accept="image/jpg, image/jpeg, image/png"
+                        ref={imageInput}
+                        onChange={saveImageFile}
+                        multiple="multiple"
+                        style={{display: "none"}}></ImageInput>
+                    <AddImageButton type="button" onClick={onButtonClick}>이미지 넣기</AddImageButton>
+                </div>
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'center'
+                }}>
+                    <DescriptionInput
+                        onChange={onDescriptionHandler}
+                        placeholder="글을 작성하세요.">
+                    </DescriptionInput>
+                </div>
+                <div style={{
+                    margin: 'auto',
+                    display: 'flex',
+                    width: '500px',
+                    justifyContent: 'center'
+                }}>
+                    <SaveButton onClick={onWriteButtonClick}>저장</SaveButton>
+                </div>
+            </motion.div>
         </>
     )
 

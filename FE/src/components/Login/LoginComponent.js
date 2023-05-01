@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 import { loginUser } from "../../store/User";
+import {motion} from 'framer-motion';
 
 export default function LoginComponent() {
     const [id, setId] = useState("");
@@ -38,24 +39,32 @@ export default function LoginComponent() {
     }
 
     return(
-        <Positioner>
-            <Logo>Login</Logo>
-            <Contents>
-                <form onSubmit={onSubmitHandler}>
-                    <Label htmlFor="id">아이디</Label>
-                    <br />
-                    <Input type="text" id="id" onChange={onIdHandler} placeholder="아이디"></Input>
-                    <br />
-                    <Label htmlFor="password">비밀번호</Label>
-                    <br />
-                    <Input type="password" id="password" onChange={onPwHandler} placeholder="비밀번호"></Input>
-                </form>            
-            </Contents>
-            <Button type="submit" onClick={onSubmitHandler}>로그인</Button>
-            <div><NavLink to='/'></NavLink></div>
-            <RegisterLink><NavLink to="/auth/register">회원가입</NavLink></RegisterLink>
-            
-        </Positioner>
+        <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.3,
+          delay: 0.3,
+          ease: [0.71, 0.71, 0.2, 1.01]}} >
+            <Positioner>
+                <Logo>Login</Logo>
+                <Contents>
+                    <form onSubmit={onSubmitHandler}>
+                        <Label htmlFor="id">아이디</Label>
+                        <br />
+                        <Input type="text" id="id" onChange={onIdHandler} placeholder="아이디"></Input>
+                        <br />
+                        <Label htmlFor="password">비밀번호</Label>
+                        <br />
+                        <Input type="password" id="password" onChange={onPwHandler} placeholder="비밀번호"></Input>
+                    </form>            
+                </Contents>
+                <Button type="submit" onClick={onSubmitHandler}>로그인</Button>
+                <div><NavLink to='/'></NavLink></div>
+                <RegisterLink><NavLink to="/auth/register">회원가입</NavLink></RegisterLink>
+                
+            </Positioner>
+        </motion.div>
     )
 
 }

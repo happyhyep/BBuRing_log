@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { addMyLocation, fetchAllMapAPI } from "../../store/MapSearch";
 import axios from "axios";
+import {motion} from 'framer-motion';
 
 function SearchBar() {
     const [searchText, setSearchText] = useState('')
@@ -34,33 +35,42 @@ function SearchBar() {
     }, [searchText])
 
     return(
-        <div style={{marginTop: '3rem'}}>
-            <div style={{display: "flex", justifyContent: 'center'}}>
-                <div>
-                    <Input onChange={onSearchHandler} placeholder="주소를 검색하세요" ></Input>
-                    {searchText.length > 0 && searchText && (
-                    <AutoSearchContainer>
-                        <AutoSearchWrap>
-                            {searchedList.map((search) => (
-                                //<div>{search}</div>
-                                <AutoSearchData
-                                    onClick={() => {
-                                        setSearchText(search.name);
-                                        setLocationX(search.x);
-                                        setLocationY(search.y);
-                                    }}
-                                >{search.name}</AutoSearchData>
-                            ))}
-                        </AutoSearchWrap>
-                    </AutoSearchContainer>
-                    )}
+        <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.3,
+          delay: 0.3,
+          ease: [0.71, 0.71, 0.2, 1.01]}} >
+            <div style={{marginTop: '3rem'}}>
+                <div style={{display: "flex", justifyContent: 'center'}}>
+                    <div>
+                        <Input onChange={onSearchHandler} placeholder="주소를 검색하세요" ></Input>
+                        {searchText.length > 0 && searchText && (
+                        <AutoSearchContainer>
+                            <AutoSearchWrap>
+                                {searchedList.map((search) => (
+                                    //<div>{search}</div>
+                                    <AutoSearchData
+                                        onClick={() => {
+                                            setSearchText(search.name);
+                                            setLocationX(search.x);
+                                            setLocationY(search.y);
+                                        }}
+                                    >{search.name}</AutoSearchData>
+                                ))}
+                            </AutoSearchWrap>
+                        </AutoSearchContainer>
+                        )}
+                    </div>
+                    <Button onClick={onSubmitHandler}>검색</Button>
                 </div>
-                <Button onClick={onSubmitHandler}>검색</Button>
-            </div>
-            <div style={{display: "flex", justifyContent: 'center'}}>
+                <div style={{display: "flex", justifyContent: 'center'}}>
 
+                </div>
             </div>
-        </div>
+            </motion.div>
+        
     )
 
 }
@@ -74,6 +84,7 @@ const Input = styled.input`
     border-radius: 0.5rem;
     border: 1px solid rgb(151,142,113);
     font-family: UhBeeZZIBA-Regular;
+    transition: width .35s linear; 
 `
 
 const Button = styled.button`

@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { registerUser } from "../../store/User";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 export default function RegisterComponent() {
     const [name, setName] = useState("");
@@ -29,29 +30,37 @@ export default function RegisterComponent() {
         window.location.replace('/');
     }
     return(
-        <Positioner>
-            <Logo>Register</Logo>
-            <Contents>
-                <form onSubmit={onSubmitHandler}>
-                    <Label htmlFor="name">이름</Label>
-                    <br />
-                    <Input type="text" id="name" onChange={onNameHandler} placeholder="홍길동"></Input>
-                    <Label htmlFor="nickname">닉네임</Label>
-                    <br />
-                    <Input type="text" id="nickname" onChange={onNicknameHandler} placeholder="혠"></Input>
-                    <Label htmlFor="id">아이디</Label>
-                    <br />
-                    <Input type="text" id="id" onChange={onIdHandler} placeholder="abc123"></Input>
-                    <br />
-                    <Label htmlFor="id">비밀번호</Label>
-                    <br />
-                    <Input type="password" id="password" onChange={onPwHandler} placeholder="def1234"></Input>
-                </form>            
-            </Contents>
-            <Button type="submit" onClick={onSubmitHandler}>회원가입</Button>
-            <RegisterLink><NavLink to="/login">로그인 페이지로</NavLink></RegisterLink>
-            
-        </Positioner>
+        <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+        duration: 0.3,
+        delay: 0.3,
+        ease: [0.71, 0.71, 0.2, 1.01]}} >
+            <Positioner>
+                <Logo>Register</Logo>
+                <Contents>
+                    <form onSubmit={onSubmitHandler}>
+                        <Label htmlFor="name">이름</Label>
+                        <br />
+                        <Input type="text" id="name" onChange={onNameHandler} placeholder="홍길동"></Input>
+                        <Label htmlFor="nickname">닉네임</Label>
+                        <br />
+                        <Input type="text" id="nickname" onChange={onNicknameHandler} placeholder="혠"></Input>
+                        <Label htmlFor="id">아이디</Label>
+                        <br />
+                        <Input type="text" id="id" onChange={onIdHandler} placeholder="abc123"></Input>
+                        <br />
+                        <Label htmlFor="id">비밀번호</Label>
+                        <br />
+                        <Input type="password" id="password" onChange={onPwHandler} placeholder="def1234"></Input>
+                    </form>            
+                </Contents>
+                <Button type="submit" onClick={onSubmitHandler}>회원가입</Button>
+                <RegisterLink><NavLink to="/login">로그인 페이지로</NavLink></RegisterLink>
+                
+            </Positioner>
+        </motion.div>
     )
 
 }

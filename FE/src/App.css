@@ -28,3 +28,12 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+@keyframes textslide {
+  from{
+      left: -100px;
+  }
+  to{
+      left:400px;
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {motion} from 'framer-motion';
 
 export default function UserInfoComponent() {
     function onClick() {
@@ -9,27 +10,32 @@ export default function UserInfoComponent() {
         window.location.replace('/searchgroup')
     }
     return(
-        <Positioner>
-            <Logo>My Info</Logo>
-            <Contents>
-                    <Label>아이디</Label>
-                    <br />
-                    <Box>{localStorage.getItem('id')}</Box>
-                    <br />
-                    <Label>닉네임</Label>
-                    <br />
-                    <Box>{localStorage.getItem('nickname')}</Box>     
-                    <br />
-                    <Label>내 그룹</Label>
-                    <br />
-                    {localStorage.getItem("_id") == null ?
-                                <RegisterButton onClick={onRequestLink}>그룹 검색하러 가기</RegisterButton>
-                        : <Box>localStorage.getItem("_id")</Box>}
-            </Contents>
-            <Button type="submit" onClick={onClick}>확인</Button>
-
-            
-        </Positioner>
+        <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.3,
+          delay: 0.3,
+          ease: [0.71, 0.71, 0.2, 1.01]}} >
+            <Positioner>
+                <Logo>My Info</Logo>
+                <Contents>
+                        <Label>아이디</Label>
+                        <br />
+                        <Box>{localStorage.getItem('id')}</Box>
+                        <br />
+                        <Label>닉네임</Label>
+                        <br />
+                        <Box>{localStorage.getItem('nickname')}</Box>     
+                        <br />
+                        <Label>내 그룹</Label>
+                        <br />
+                        {localStorage.getItem("_id") == null ?
+                                    <RegisterButton onClick={onRequestLink}>그룹 검색하러 가기</RegisterButton>
+                            : <Box>localStorage.getItem("_id")</Box>}
+                </Contents>
+                <Button type="submit" onClick={onClick}>확인</Button>
+            </Positioner></motion.div>
     )
 }
 

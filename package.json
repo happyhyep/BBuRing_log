@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "react-animation": "^1.2.2",
     "react-star-ratings": "^2.3.0",
     "sass": "^1.62.1"
   }

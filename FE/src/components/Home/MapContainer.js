@@ -4,7 +4,7 @@ import PostedImages from "./PostedImages";
 import styled from "styled-components";
 import { getMyLocation } from "../../store/MapSearch";
 import Write from "../../pages/Write";
-
+import {motion} from 'framer-motion';
 
 const {kakao} = window;
 
@@ -107,6 +107,13 @@ function MapContainer() {
     }
 
     return (
+        <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.5,
+          ease: [0.71, 0.71, 0.2, 1.01]}} >
         <div style={{margin: 'auto'}}>
             <div id="map" style={{
                 marginTop: '3rem',
@@ -127,7 +134,7 @@ function MapContainer() {
                     <div><WriteButton onClick={()=>onWriteButton(nowClickedMarker)}>✍️ 글 쓰기</WriteButton></div>
                 </div>)
                 : null}
-        </div>
+        </div></motion.div>
     )
 }
 export default MapContainer;

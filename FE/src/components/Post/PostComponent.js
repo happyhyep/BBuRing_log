@@ -1,17 +1,26 @@
 import React from "react";
 import styled from "styled-components";
+import {motion} from 'framer-motion';
 
 export default function PostComponent() {
 
     return(
         <>
-            <Positioner>
-                <Star>별점 :</Star>
-                <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuPa43fmrHgIZvcCgDkTgdGX8SUIq0L93Dnw&usqp=CAU'></Image>
-                <Contents>
-                    간다ㅏ
-                </Contents>
-            </Positioner>
+         <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+            duration: 0.2,
+            delay: 0.1,
+            ease: [0.71, 0.71, 0.2, 1.01]}} >
+                <Positioner>
+                    <Star>별점 :</Star>
+                    <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuPa43fmrHgIZvcCgDkTgdGX8SUIq0L93Dnw&usqp=CAU'></Image>
+                    <Contents>
+                        간다ㅏ
+                    </Contents>
+                </Positioner>
+            </motion.div>
         </>
     )
 }
