@@ -1,8 +1,8 @@
 import React from "react";
-import SearchFriendComponent from "../components/Friend/SearchFriendComponent";
+import SearchFriendComponent from "../components/Group/SearchGroupComponent";
 import NavBar from "../components/Common/NavBar";
 
-export default function SearchFriend() {
+export default function SearchGroup() {
 
     return(
         <>

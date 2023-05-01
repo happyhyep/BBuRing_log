@@ -7,7 +7,7 @@ import Register from "../../pages/Register";
 import Write from "../../pages/Write";
 import HomeBeforeLogin from "../../pages/HomeBeforeLogin";
 import UserInfo from "../../pages/UserInfo";
-import SearchFriend from "../../pages/SearchFriend";
+import SearchGroup from "../../pages/SearchGroup";
 
 export default function Router() {
     return(
@@ -21,7 +21,7 @@ export default function Router() {
                 <Route path="/auth/register" element={<Register />} />
                 <Route path="/user/info" element={<UserInfo />} />
                 <Route path='/write' element={<Write />} />
-                <Route path="/searchfriend" element={<SearchFriend />} />
+                <Route path="/searchgroup" element={<SearchGroup />} />
             </Routes>
         </BrowserRouter>
 

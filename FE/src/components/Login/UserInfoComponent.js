@@ -6,7 +6,7 @@ export default function UserInfoComponent() {
         window.location.replace('/')
     }
     function onRequestLink() {
-        window.location.replace('/searchfriend')
+        window.location.replace('/searchgroup')
     }
     return(
         <Positioner>
@@ -20,10 +20,10 @@ export default function UserInfoComponent() {
                     <br />
                     <Box>{localStorage.getItem('nickname')}</Box>     
                     <br />
-                    <Label>내 연인</Label>
+                    <Label>내 그룹</Label>
                     <br />
                     {localStorage.getItem("_id") == null ?
-                                <RegisterButton onClick={onRequestLink}>연인 등록하러 가기</RegisterButton>
+                                <RegisterButton onClick={onRequestLink}>그룹 검색하러 가기</RegisterButton>
                         : <Box>localStorage.getItem("_id")</Box>}
             </Contents>
             <Button type="submit" onClick={onClick}>확인</Button>

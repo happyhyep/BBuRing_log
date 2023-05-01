@@ -2,12 +2,19 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { fetchAllUser } from "../../store/User";
 import { requestGroup } from "../../store/Group";
+import GroupComponent from "./GroupComponent";
 
-export default function SearchFriendComponent() {
+export default function SearchGroupComponent() {
     const [searchText, setSearchText] = useState('')
     const [searchedList, setSearchedList] = useState([]);
     const [userList, setUserList] = useState([]);
 
+    const groupsList = [
+        {name: '맛집', leader: 'ㅎㅎ'},
+        {name: '맛나', leader: 'ㄱㄱ'},
+        {name: '기니', leader: 'ㄱㄱ'},
+        {name: '뿌링클', leader: 'ㄱㄱ'},
+    ]
     const onSearchHandler = (e) => {
         setSearchText(e.currentTarget.value);
     }
@@ -19,7 +26,7 @@ export default function SearchFriendComponent() {
                 setUserList(res.data);
             return res.data;
         })
-        const filteredList = userList.filter((search) => {
+        const filteredList = groupsList.filter((search) => {
             if (searchText === '' || searchText === null) {
                 return search;
             } else {
@@ -29,8 +36,12 @@ export default function SearchFriendComponent() {
     }, [searchText])
 
     const onSubmitHandler = () => {
+        console.log(searchText);
+        console.log(searchedList[0].name)
         return(
-            <setSearchedList></setSearchedList>
+            <>
+            <Box>{searchedList[0].name}</Box>
+            </>
         )
     }
     const onRequestHandler = () => {
@@ -42,11 +53,13 @@ export default function SearchFriendComponent() {
         <div style={{marginTop: '3rem'}}>
             <div style={{display: "flex", justifyContent: 'center'}}>
                 <div>
-                    <Input onChange={onSearchHandler} placeholder="연인의 아이디를 검색하세요"></Input>
-                    <Box>{searchedList}</Box>
+                    <Input onChange={onSearchHandler} placeholder="그룹의 이름을 검색하세요"></Input>
                 </div>
                 <Button onClick={onSubmitHandler}>검색</Button>
             </div>
+            <Groups>
+                {searchedList.length > 0 ? <GroupComponent group={searchedList}></GroupComponent> : null}
+            </Groups>
         </div>
 
     )
@@ -83,4 +96,8 @@ text-align: center;
 cursor: pointer;
 user-select: none;
 transition: .2s all;
+`
+
+const Groups = styled.div`
+    
 `
