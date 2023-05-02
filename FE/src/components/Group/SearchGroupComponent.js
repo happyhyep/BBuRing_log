@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { fetchAllUser } from "../../store/User";
 import { requestGroup } from "../../store/Group";
 import GroupComponent from "./GroupComponent";
+import {motion} from 'framer-motion'
 
 export default function SearchGroupComponent() {
     const [searchText, setSearchText] = useState('')
@@ -12,8 +13,11 @@ export default function SearchGroupComponent() {
     const groupsList = [
         {name: '맛집', leader: 'ㅎㅎ'},
         {name: '맛나', leader: 'ㄱㄱ'},
-        {name: '기니', leader: 'ㄱㄱ'},
+        {name: '기니', leader: '멤버1'},
         {name: '뿌링클', leader: 'ㄱㄱ'},
+        {name: '뿌링모임', leader: '리더나야'},
+        {name: '헤처모여', leader: '리더'},
+        {name: '랄라랄', leader: 'ㅎㅇ'},
     ]
     const onSearchHandler = (e) => {
         setSearchText(e.currentTarget.value);
@@ -57,9 +61,9 @@ export default function SearchGroupComponent() {
                 </div>
                 <Button onClick={onSubmitHandler}>검색</Button>
             </div>
-            <Groups>
-                {searchedList.length > 0 ? <GroupComponent group={searchedList}></GroupComponent> : null}
-            </Groups>
+                <Groups>
+                    {searchedList.length > 0 ? <GroupComponent group={searchedList}></GroupComponent> : null}
+                </Groups>
         </div>
 
     )
@@ -99,5 +103,10 @@ transition: .2s all;
 `
 
 const Groups = styled.div`
-    
+    display: flex;
+    flex-wrap: wrap;
+    flex-start: left;
+    margin: auto;
+    max-width: 720px;
+    justify-content: flex-start;
 `

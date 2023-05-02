@@ -1,23 +1,34 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
+import {motion} from "framer-motion";
 
 function GroupComponent(props) {
-    
+    const onButtonClick = () => {
+        alert("그룹 요청 완료");
+    }
 
     return(
         (props.group).map((data)=>{return (
-            <Positioner>
-                <Logo>[{data.name}]그룹</Logo>
-                <Contents>
-                    <br />
-                    <Label>그룹 리더</Label>
-                    <br />
-                    <Box>{data.leader}</Box>
-                    <br />
-                    <Button>참여 요청</Button>
-                </Contents>
-            </Positioner>
+            <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+            duration: 0.8,
+            delay: 0.5,
+            ease: [0.71, 0.71, 0.2, 1.01]}} >
+                <Positioner>
+                    <Logo>[{data.name}]그룹</Logo>
+                    <Contents>
+                        <br />
+                        <Label>그룹 리더</Label>
+                        <br />
+                        <Box>{data.leader}</Box>
+                        <br />
+                        <Button onClick={onButtonClick}>참여 요청</Button>
+                    </Contents>
+                </Positioner>
+            </motion.div>
         )})
     )
 }
@@ -25,7 +36,6 @@ function GroupComponent(props) {
 export default GroupComponent
 
 const Positioner = styled.div`
-
     width: 200px;
     height: auto;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);

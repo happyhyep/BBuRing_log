@@ -121,10 +121,11 @@ function MapContainer() {
                 height: '450px',
                 marginLeft: 'auto',
                 marginRight: 'auto',
-                boxShadow: '0 5px 20px rgba(0, 0, 0, 0.8)'
+                boxShadow: '0 5px 20px rgba(0, 0, 0, 0.8)',
+                borderRadius: '16px'
             }}>
             <MapBtnContainer>
-                <MapControlBtn  onClick={zoomIn} style={{borderRight: "1px solid #919191"}} >+</MapControlBtn>
+                <MapControlBtn  onClick={zoomIn} style={{borderRight: "1px solid rgb(234,130,99)"}} >+</MapControlBtn>
                 <MapControlBtn  onClick={zoomOut}  >-</MapControlBtn>
             </MapBtnContainer>
             </div>
@@ -140,15 +141,17 @@ function MapContainer() {
 export default MapContainer;
 
 const MapBtnContainer = styled.div`
-  position: absolute;
-  top: 15px;
-  right: 10px;
-  z-index: 5;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  border:1px solid #919191;
-  background-color: #F5F5F5;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    z-index: 5;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    border:1px solid rgb(234,130,99);
+    background-color: rgb(251,243,220);
+    font-family: UhBeeZZIBA-Regular;
+    color: rgb(234,130,99);
 `
 
 const MapControlBtn = styled.div`
@@ -159,7 +162,7 @@ const MapControlBtn = styled.div`
   align-items: center;
   text-align:center;
   cursor:pointer;
-  font-family: UhBeeZZIBA-Regular;
+
 `
 
 const WriteButton = styled.button`
