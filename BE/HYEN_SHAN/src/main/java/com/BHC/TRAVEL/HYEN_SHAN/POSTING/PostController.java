@@ -33,13 +33,14 @@ public class PostController {
     }
     @ResponseBody
     @PostMapping("upload")
-    public ResponseEntity Uploadfile(@RequestPart(value="uploadImage",required = false)  MultipartFile file, @RequestPart String uploadDescription) throws MultipartException, IOException {
+    public ResponseEntity Uploadfile(@RequestPart(value="uploadImage",required = false)  MultipartFile file, @RequestPart String uploadDescription,@RequestPart String userid) throws MultipartException, IOException {
         System.out.println("desc = " + uploadDescription);
-        String path = "C:\\Users\\van13\\Documents\\github\\BHC_project\\BE\\HYEN_SHAN\\src\\main\\java\\com\\BHC\\TRAVEL\\HYEN_SHAN\\DATABASES\\IMAGES";
+        String path = "etc/IMAGES";
         path = path+"\\"+file.getOriginalFilename();
         System.out.println("path = " + path);
         file.transferTo(new File(path));
         System.out.println(file);
+        PostingPrams temp = PostingPrams.builder().user_id(userid).description(uploadDescription).file_loc(path).build();
         return ResponseEntity.ok().build();
 
     }

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35ec3a42-2e15-47f1-91a7-a574cbfdfc7e" name="Changes" comment="" />
+    <list default="true" id="35ec3a42-2e15-47f1-91a7-a574cbfdfc7e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HYEN_SHAN/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/HYEN_SHAN/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +50,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/SIHWAN/Desktop/github/BHC_project/BE/HYEN_SHAN",
+    "last_opened_file_path": "C:/Users/van13/Documents/github/happyhyep/BHC_project/BHC_project/BE/HYEN_SHAN",
     "spring.configuration.checksum": "08329d8029ba42b1243e651129adee19",
     "vue.rearranger.settings.migration": "true"
   }
@@ -59,7 +62,9 @@
   </component>
   <component name="RunManager">
     <configuration name="HyenShanApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="HYEN_SHAN.main" />
+      <option name="ALTERNATIVE_JRE_PATH" value="18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="BE" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.BHC.TRAVEL.HYEN_SHAN.HyenShanApplication" />
       <extension name="coverage">
         <pattern>
@@ -88,6 +93,7 @@
       <workItem from="1678589961899" duration="2502000" />
       <workItem from="1679321517271" duration="223000" />
       <workItem from="1679321759355" duration="17000" />
+      <workItem from="1682903910576" duration="189000" />
     </task>
     <servers />
   </component>
