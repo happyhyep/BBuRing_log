@@ -22,9 +22,11 @@ export default function HomeBeforeLogin() {
     // })
     const { scrollYProgress } = useScroll();
     const controls = useAnimationControls();
+    let observer = IntersectionObserver((e)=> {
 
-
-
+    })
+    let div = document.querySelectorAll('div') //div 태그로 되어잇는 모든 것들을 가져옴
+    observer.observe(div[0]) //div[0]의 요소가 화면에 나타나는 것을 찾음
     return(
         <>
             <NavBar>
