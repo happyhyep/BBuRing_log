@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import NavBar from "../components/Common/NavBar";
-import {motion, useAnimationControls, useScroll} from 'framer-motion';
+import {motion, useAnimationControls, useScroll, useInView} from 'framer-motion';
 import styled from "styled-components";
 import './style.css';
 
@@ -21,12 +21,20 @@ export default function HomeBeforeLogin() {
     //  renderer.render(scene)
     // })
     const { scrollYProgress } = useScroll();
-    const controls = useAnimationControls();
-    let observer = IntersectionObserver((e)=> {
+    // const controls = useAnimationControls();
+    // const observer = IntersectionObserver((e)=> {
+    //     e.forEach(element => {
+    //         if(element.isIntersecting){
 
-    })
-    let div = document.querySelectorAll('div') //div 태그로 되어잇는 모든 것들을 가져옴
-    observer.observe(div[0]) //div[0]의 요소가 화면에 나타나는 것을 찾음
+    //         }
+    //     });
+    // })
+    // let div = document.querySelectorAll('div') //div 태그로 되어잇는 모든 것들을 가져옴
+    // observer.observe(div[0]) //div[0]의 요소가 화면에 나타나는 것을 찾음
+
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+    
     return(
         <>
             <NavBar>
@@ -67,22 +75,21 @@ export default function HomeBeforeLogin() {
             <div style={{position: 'absolute', marginTop: '0'}}>
                 <img alt="chicken" src="img/배경2.png" style={{width: '100%' }} ></img>
             </div>
-            {(scrollYProgress >= 0.4) ?
             <div style={{position: 'relative', marginTop: '20%', marginLeft: '10%'}}>
                 <motion.div 
-                animate={{x: [-1000,-500,0]}}
-                transition={{duration: 2, times: [0, 0.2, 0.5] }}>
+                animate={{x: isInView ? [-1000,-500,0] : null}}
+                transition={{duration: isInView ? 2 : null, times: isInView ?  [0, 0.2, 0.5] : null}}>
                     <TitleText>이 프로젝트는</TitleText>
                 </motion.div>
                     <br />
                 <motion.div 
-                animate={{x: [-1000,-500,0]}}
+                animate={{x: isInView ? [-1000,-500,0] : null}}
                 transition={{delay: 1, duration: 1, times: [0, 0.2, 0.5] }}>
                     <ContentText2>이러이래서 시작됨ㅇㅇ</ContentText2>
                     <ContentText2>이러이래서이러링래ㅑ저디렂딜ㅈㄷ;ㅓㅍ</ContentText2>
                     <ContentText2>어쩌구저쩌구</ContentText2>
                 </motion.div> 
-            </div>: null}
+            </div>
             <div style={{height: '70rem', display: 'flex'}}>
 
             </div>
