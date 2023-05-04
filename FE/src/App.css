@@ -3,6 +3,14 @@
   color: #F5F1F1;
   background-color: #E9AC06;
   height: 80vh;
+
+  @font-face {
+    font-family: 'UhBeeZZIBA-Regular';
+    src: url('../src/fonts/UhBeeZZIBA-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+    
 }
 
 .Title {
@@ -19,4 +27,13 @@ body {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+@keyframes textslide {
+  from{
+      left: -100px;
+  }
+  to{
+      left:400px;
+  }
 }

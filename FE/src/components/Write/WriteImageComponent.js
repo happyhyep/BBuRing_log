@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { uploadPost } from "../../store/Write";
+import {motion} from 'framer-motion';
 
-
-function WriteImageComponent() {
+function WriteImageComponent(props) {
     const [imageFile, setImageFile] = useState("")
     const [savedFile, setSavedFile] = useState("")
     const [description, setDescription] = useState("")
     const imageInput = React.createRef();
-  
+    const [star, setStar] = useState();
+
     const saveImageFile = () => {
         const file = imageInput.current.files[0];
         const reader = new FileReader();
@@ -37,7 +39,7 @@ function WriteImageComponent() {
             "uploadDescription",
             description
         );
-
+        uploadPost(props.nowClickedMarker, star, formData);
         {/*console.log(formData)    
         //key 확인하기
         for (let key of formData.keys()) {
@@ -55,7 +57,7 @@ function WriteImageComponent() {
             url: `http://localhost:8080/post/upload`,
             mode: "cors",
             headers: {
-                "Content-Type": "multipart/form-data", // Content-Type을 반드시 이렇게 하여야 한다.
+                "Content-Type": "multipart/form-data",
             },
             data: formData, // data 전송시에 반드시 생성되어 있는 formData 객체만 전송 하여야 한다.
         });
@@ -64,48 +66,56 @@ function WriteImageComponent() {
     
     return(
         <>
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center'
-            }}> 
-                <Image
-                    src={imageFile ? imageFile :`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSWSxsVpAmqb_T7CLGolJ193Bw9xh7X7r0yQ&usqp=CAU`}
-                    alt="이미지"
-                    onDoubleClick={onButtonClick}
-                />
-            </div>
-            <div style={{
-                margin: 'auto',
-                display: 'flex',
-                width: '500px',
-                justifyContent: 'center'
-            }}>
-                <ImageInput
-                    type="file"
-                    accept="image/jpg, image/jpeg, image/png"
-                    ref={imageInput}
-                    onChange={saveImageFile}
-                    multiple="multiple"
-                    style={{display: "none"}}></ImageInput>
-                <AddImageButton type="button" onClick={onButtonClick}>이미지 넣기</AddImageButton>
-            </div>
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center'
-            }}>
-                <DescriptionInput
-                    onChange={onDescriptionHandler}
-                    placeholder="글을 작성하세요.">
-                </DescriptionInput>
-            </div>
-            <div style={{
-                margin: 'auto',
-                display: 'flex',
-                width: '500px',
-                justifyContent: 'center'
-            }}>
-                <SaveButton onClick={onWriteButtonClick}>저장</SaveButton>
-            </div>
+         <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.1,
+          delay: 0.05,
+          ease: [0.71, 0.71, 0.2, 1.01]}} >
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'center'
+                }}><div>{props.nowClickedMarker}</div>
+                    <Image
+                        src={imageFile ? imageFile :`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSWSxsVpAmqb_T7CLGolJ193Bw9xh7X7r0yQ&usqp=CAU`}
+                        alt="이미지"
+                        onDoubleClick={onButtonClick}
+                    />
+                </div>
+                <div style={{
+                    margin: 'auto',
+                    display: 'flex',
+                    width: '500px',
+                    justifyContent: 'center'
+                }}>
+                    <ImageInput
+                        type="file"
+                        accept="image/jpg, image/jpeg, image/png"
+                        ref={imageInput}
+                        onChange={saveImageFile}
+                        multiple="multiple"
+                        style={{display: "none"}}></ImageInput>
+                    <AddImageButton type="button" onClick={onButtonClick}>이미지 넣기</AddImageButton>
+                </div>
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'center'
+                }}>
+                    <DescriptionInput
+                        onChange={onDescriptionHandler}
+                        placeholder="글을 작성하세요.">
+                    </DescriptionInput>
+                </div>
+                <div style={{
+                    margin: 'auto',
+                    display: 'flex',
+                    width: '500px',
+                    justifyContent: 'center'
+                }}>
+                    <SaveButton onClick={onWriteButtonClick}>저장</SaveButton>
+                </div>
+            </motion.div>
         </>
     )
 
@@ -130,6 +140,7 @@ const AddImageButton = styled.button`
     margin-left: 1rem;
 
     font-size: 15px;
+    font-family: UhBeeZZIBA-Regular;
     color: rgb(234,130,99);
     text-align: center;
 
@@ -145,6 +156,7 @@ const DescriptionInput = styled.input`
     border: 1px solid rgb(252,214,131);
 
     font-size: 15px;
+    font-family: UhBeeZZIBA-Regular;
     color: rgb(234,130,99);
 `
 const SaveButton = styled.button`
@@ -155,6 +167,7 @@ const SaveButton = styled.button`
     margin-left: 1rem;
 
     font-size: 15px;
+    font-family: UhBeeZZIBA-Regular;
     color: rgb(234,130,99);
     text-align: center;
 

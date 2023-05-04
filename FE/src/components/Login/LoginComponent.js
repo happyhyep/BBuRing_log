@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 import { loginUser } from "../../store/User";
+import {motion} from 'framer-motion';
 
-export default function LoginComponent({auth}) {
->>>>>>> d6b23528 (searchbar 드롭박스 구현)
+export default function LoginComponent() {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [userInfo, setUserInfo] = useState();
@@ -23,11 +23,15 @@ export default function LoginComponent({auth}) {
             if(res.data.error === false)
                 {
                     console.log(res.data);
-                    alert("로그인 성공");
                     setIsLoggedIn(true);
                     setUserInfo(res.data);
-                    auth = userInfo;
+                    localStorage.clear()
+                    localStorage.setItem("id", res.data.id)
+                    localStorage.setItem("nickname", res.data.nick)
+                    localStorage.setItem("name", res.data.name)
+                    window.location.replace('/');
                 }
+
             else{
                 alert(res.data.error_message);
             }
@@ -35,24 +39,32 @@ export default function LoginComponent({auth}) {
     }
 
     return(
-        <Positioner>
-            <Logo>Login</Logo>
-            <Contents>
-                <form onSubmit={onSubmitHandler}>
-                    <Label htmlFor="id">아이디</Label>
-                    <br />
-                    <Input type="text" id="id" onChange={onIdHandler} placeholder="아이디"></Input>
-                    <br />
-                    <Label htmlFor="password">비밀번호</Label>
-                    <br />
-                    <Input type="password" id="password" onChange={onPwHandler} placeholder="비밀번호"></Input>
-                </form>            
-            </Contents>
-            <Button type="submit" onClick={onSubmitHandler}>로그인</Button>
-
-            <RegisterLink><NavLink to="/auth/register">회원가입</NavLink></RegisterLink>
-            
-        </Positioner>
+        <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.3,
+          delay: 0.3,
+          ease: [0.71, 0.71, 0.2, 1.01]}} >
+            <Positioner>
+                <Logo>Login</Logo>
+                <Contents>
+                    <form onSubmit={onSubmitHandler}>
+                        <Label htmlFor="id">아이디</Label>
+                        <br />
+                        <Input type="text" id="id" onChange={onIdHandler} placeholder="아이디"></Input>
+                        <br />
+                        <Label htmlFor="password">비밀번호</Label>
+                        <br />
+                        <Input type="password" id="password" onChange={onPwHandler} placeholder="비밀번호"></Input>
+                    </form>            
+                </Contents>
+                <Button type="submit" onClick={onSubmitHandler}>로그인</Button>
+                <div><NavLink to='/'></NavLink></div>
+                <RegisterLink><NavLink to="/auth/register">회원가입</NavLink></RegisterLink>
+                
+            </Positioner>
+        </motion.div>
     )
 
 }
@@ -77,7 +89,7 @@ const Logo = styled.div`
     border-top-right-radius: 0.5rem;
 
     color: rgb(234,156,094);
-    font-family: 'Rajdhani';
+    font-family: UhBeeZZIBA-Regular;
     font-size: 2.4rem;
     letter-spacing: 5px;
     text-decoration: none;
@@ -87,7 +99,7 @@ const Contents = styled.div`
     background: white;
     padding: 2rem;
     height: auto;
-    
+    font-family: UhBeeZZIBA-Regular;
 `;
 
 const Input = styled.input`
@@ -101,11 +113,13 @@ const Input = styled.input`
     margin-right: 1rem;
 
     font-size: 1.2rem;
+    font-family: UhBeeZZIBA-Regular;
     color: grey;
 `;
 
 const Label = styled.label`
     font-size: 0.8rem;
+    font-family: UhBeeZZIBA-Regular;
     color: grey;
 `
 
@@ -124,6 +138,7 @@ const Button = styled.button`
 
     text-align: center;
     font-size: 1rem;
+    font-family: UhBeeZZIBA-Regular;
     font-weight: 500;
 
     cursor: pointer;
@@ -138,5 +153,6 @@ const RegisterLink = styled.div`
 
     text-align: right;
     font-size: 0.8rem;
+    font-family: UhBeeZZIBA-Regular;
     color: grey;
 `
