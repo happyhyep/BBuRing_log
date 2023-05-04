@@ -39,7 +39,7 @@ export default function HomeBeforeLogin() {
                     right: 0,
                     width: '100%',
                     height: '10px',
-                    transformOrigin: 0,
+                    transformOrigin: 0, 
                     transform: 'translate3d(0, 0, 0)',
                     background: 'rgb(252,214,131)'
             }} />
