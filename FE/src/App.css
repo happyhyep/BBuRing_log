@@ -4,13 +4,6 @@
   background-color: #E9AC06;
   height: 80vh;
 
-  @font-face {
-    font-family: 'UhBeeZZIBA-Regular';
-    src: url('../src/fonts/UhBeeZZIBA-Regular.ttf');
-    font-weight: normal;
-    font-style: normal;
-  }
-    
 }
 
 .Title {

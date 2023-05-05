@@ -83,7 +83,7 @@ const Input = styled.input`
     padding-left: 10px;
     border-radius: 0.5rem;
     border: 1px solid rgb(151,142,113);
-    font-family: UhBeeZZIBA-Regular;
+    font-family: LINESeedRg;
     transition: width .35s linear; 
 `
 
@@ -96,14 +96,14 @@ const Button = styled.button`
 
     margin-left: 1rem;
 
-    font-size: 15px;
+    font-family: LINESeedRg;
+    font-size: 13px;
     color: rgb(234,130,99);
     text-align: center;
 
     cursor: pointer;
     user-select: none;
     transition: .2s all;
-    font-family: UhBeeZZIBA-Regular;
 `
 
 const AutoSearchContainer = styled.div`
@@ -129,7 +129,7 @@ const AutoSearchData = styled.li`
   width: 100%;
   height: 5px;
   font-size: 14px;
-  font-family: UhBeeZZIBA-Regular;
+  font-family: LINESeedRg;
   font-weight: bold;
   z-index: 4;
   letter-spacing: 2px;

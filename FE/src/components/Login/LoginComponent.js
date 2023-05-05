@@ -80,7 +80,7 @@ const Positioner = styled.div`
 `;
 
 const Logo = styled.div`
-    background-color: rgb(254,213,107);
+    background-color: rgb(252,214,131);
     height: 5rem;
     display: flex;
     align-items: center;
@@ -99,7 +99,7 @@ const Contents = styled.div`
     background: white;
     padding: 2rem;
     height: auto;
-    font-family: UhBeeZZIBA-Regular;
+    font-family: LINESeedRg;
 `;
 
 const Input = styled.input`
@@ -111,15 +111,16 @@ const Input = styled.input`
     padding-left: 0.5rem;
     padding-right: 0rem;
     margin-right: 1rem;
+    margin-top: 0.1rem;
 
-    font-size: 1.2rem;
-    font-family: UhBeeZZIBA-Regular;
+    font-size: 1rem;
+    font-family: LINESeedRg;
     color: grey;
 `;
 
 const Label = styled.label`
     font-size: 0.8rem;
-    font-family: UhBeeZZIBA-Regular;
+    font-family: LINESeedRg;
     color: grey;
 `
 
@@ -133,12 +134,12 @@ const Button = styled.button`
     border-color: white;
     border-radius: 0.5rem;
 
-    background: rgb(254,213,107);
+    background: rgb(252,214,131);
     color: rgb(234,130,99);
 
     text-align: center;
     font-size: 1rem;
-    font-family: UhBeeZZIBA-Regular;
+    font-family: LINESeedRg;
     font-weight: 500;
 
     cursor: pointer;
@@ -153,6 +154,6 @@ const RegisterLink = styled.div`
 
     text-align: right;
     font-size: 0.8rem;
-    font-family: UhBeeZZIBA-Regular;
+    font-family: LINESeedRg;
     color: grey;
 `
