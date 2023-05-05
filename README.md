@@ -102,6 +102,7 @@ spring, mongoDB 파일 설치
 
 # 💨 Architecture
 <div align="center">
+    <p>준비중</p>
 </div>
 
 # 💨 Contributing
