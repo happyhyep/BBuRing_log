@@ -19,13 +19,15 @@ public class USER {
     private String password;
     private String nickname;
     private String name;
+    private String group;
 
     @Builder
-    public USER(String ID, String password, String nickname,String name){
+    public USER(String ID, String password, String nickname,String name, String group){
         this.ID = ID;
         this.password = password;
         this.nickname = nickname;
         this.name = name;
+        this.group = group;
     }
 
 
