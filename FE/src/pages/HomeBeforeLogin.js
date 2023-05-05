@@ -53,7 +53,7 @@ export default function HomeBeforeLogin() {
                     transform: 'translate3d(0, 0, 0)',
                     background: 'rgb(252,214,131)'
             }} />
-            <div style={{height: '600px', display: 'flex', marginBottom: '10%'}}>
+            <div style={{height: '450px', display: 'flex', marginBottom: '18%'}}>
                 <motion.div
                 style={{width: '30%'}}
                 animate={{ scale: [0, 0.7, 1.3, 1, 1.3, 1.0] }}
@@ -73,23 +73,34 @@ export default function HomeBeforeLogin() {
                 {/* <canvas id="canvas" width="300" height="300"></canvas> */}
             
 
-            <div style={{height: '500px', backgroundColor: 'rgb(252,200,103)', marginTop: '0'}} >
-                <div style={{position: 'relative', backgroundColor: 'rgb(252,200,103)', marginTop: '20%', marginBottom: '20%', marginLeft: '10%'}}>
+            <div style={{height: '800px', backgroundColor: 'rgb(252,200,103)', marginTop: '0', position: 'relative'}} >
+                <div style={{position:'absolute', marginTop: '10%', marginLeft: '10%'}}>
                     <motion.div 
                     ref={ref}
-                    animate={{x: isInView ? [-1000,-500,0] : 'none'}}
-                    transition={{duration: isInView ? 2 : null, times: isInView ?  [0, 0.2, 0.5] : null}}>
-                        <TitleText>이 프로젝트는</TitleText>
+                    animate={{x: isInView ? [-1000,-7500, 0] : null}}
+                    transition={{duration: isInView ? 1 : null, times: isInView ? [0, 0.2, 0.5] : null}}>
+                        <TitleText>이 웹사이트는</TitleText>
                     </motion.div>
                         <br />
                     <motion.div 
                     ref={ref}
-                    animate={{x: isInView ? [-1000,-500,0] : [0, -500, -1000]}}
-                    transition={{delay: 1, duration: 1, times: [0, 0.2, 0.5] }}>
-                        <ContentText2>이러이래서 시작됨ㅇㅇ</ContentText2>
-                        <ContentText2>이러이래서이러링래ㅑ저디렂딜ㅈㄷ;ㅓㅍ</ContentText2>
-                        <ContentText2>어쩌구저쩌구</ContentText2>
+                    animate={{x: isInView ? [-1500, 0] : -1500}}
+                    transition={{delay: 0.5, duration: 1, times: [0, 0.5] }}>
+                        <ContentText2>뿌링클을 너무 사랑하는 사람들이 제작하였습니다.</ContentText2>
+                        <br />
+                        <ContentText2>BHC 매장마다 뿌링클 맛이 다른 걸 느끼신다구요?</ContentText2>
+                        <ContentText2>전국 매장을 돌아다니며 모든 매장의 뿌링클을 맛보고 싶으시다구요?</ContentText2>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     </motion.div> 
+                    <motion.div 
+                    ref={ref}
+                    animate={{x: isInView ? [-1500, 0] : null}}
+                    transition={{delay: 2, duration: 2 , times: [0, 0.5]}}>
+                        <TitleText style={{fontSize: '4rem'}}>지금 바로, BBuRingLog를 사용해보세요 !</TitleText>
+                    </motion.div>
                 </div>
             </div>
 
@@ -123,7 +134,7 @@ const Img= styled.img`
     height: auto;
     opacity: 80%;
     margin-left: 30%;
-    margin-top: 20%;
+    margin-top: 10%;
 `
 const TitleText = styled.div`
     font-family: LINESeedBd;
