@@ -104,18 +104,18 @@ export default function HomeBeforeLogin() {
                 </div>
             </div>
 
-            <div style={{width: '100%', backgroundColor: 'white', border: '1px, solid, black', position: 'absolute', marginTop: '0' }}>
-                <div style={{marginTop: '30%', marginRight: '10%', textAlign: 'right'}}>
+            <div style={{height: '800px', width: '100%', backgroundColor: 'white', border: '1px, solid, black', position: 'absolute', marginTop: '0' }}>
+                <div style={{marginTop: '20%', marginRight: '10%', textAlign: 'right'}}>
                     <motion.div 
                     ref={ref}
-                    animate={{x: isInView ? [-1000,-500,0] : 'none'}}
+                    animate={{x: isInView ? [-10000,-5000,0] : 'none'}}
                     transition={{duration: isInView ? 2 : null, times: isInView ?  [0, 0.2, 0.5] : null}}>
                         <TitleText>사이트 사용법</TitleText>
                     </motion.div>
                         <br />
                     <motion.div 
                     ref={ref}
-                    animate={{x: isInView ? [-1000,-500,0] : [0, -500, -1000]}}
+                    animate={{x: isInView ? [-10000,-5000,0] : [0, -5000, -10000]}}
                     transition={{delay: 1, duration: 1, times: [0, 0.2, 0.5] }}>
                         <ContentText2>회원가입/로그인</ContentText2>
                         <ContentText2>지도검색</ContentText2>
