@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import NavBar from "../components/Common/NavBar";
-import {motion, useAnimationControls, useScroll, useInView} from 'framer-motion';
+import {motion,  useScroll, useInView} from 'framer-motion';
 import styled from "styled-components";
 import './style.css';
 
@@ -32,8 +32,14 @@ export default function HomeBeforeLogin() {
     // let div = document.querySelectorAll('div') //div 태그로 되어잇는 모든 것들을 가져옴
     // observer.observe(div[0]) //div[0]의 요소가 화면에 나타나는 것을 찾음
 
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
+    const [isInView1, setIsInView1] = useState(false);
+    const [isInView2, setIsInView2] = useState(false);
+    const ref_first = useRef(null);
+    const ref_second = useRef(null);
+    const isInViewFirst = useInView(ref_first, { once: true });
+    const isInViewSecond = useInView(ref_second, { once: true });
+    console.log(isInViewFirst);
+    console.log(isInViewSecond);
     
     return(
         <>
@@ -75,53 +81,73 @@ export default function HomeBeforeLogin() {
 
             <div style={{height: '800px', backgroundColor: 'rgb(252,200,103)', marginTop: '0', position: 'relative'}} >
                 <div style={{position:'absolute', marginTop: '10%', marginLeft: '10%'}}>
-                    <motion.div 
-                    ref={ref}
-                    animate={{x: isInView ? [-1000,-7500, 0] : null}}
-                    transition={{duration: isInView ? 1 : null, times: isInView ? [0, 0.2, 0.5] : null}}>
-                        <TitleText>이 웹사이트는</TitleText>
-                    </motion.div>
-                        <br />
-                    <motion.div 
-                    ref={ref}
-                    animate={{x: isInView ? [-1500, 0] : -1500}}
-                    transition={{delay: 0.5, duration: 1, times: [0, 0.5] }}>
-                        <ContentText2>뿌링클을 너무 사랑하는 사람들이 제작하였습니다.</ContentText2>
-                        <br />
-                        <ContentText2>BHC 매장마다 뿌링클 맛이 다른 걸 느끼신다구요?</ContentText2>
-                        <ContentText2>전국 매장을 돌아다니며 모든 매장의 뿌링클을 맛보고 싶으시다구요?</ContentText2>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                    </motion.div> 
-                    <motion.div 
-                    ref={ref}
-                    animate={{x: isInView ? [-1500, 0] : null}}
-                    transition={{delay: 2, duration: 2 , times: [0, 0.5]}}>
-                        <TitleText style={{fontSize: '4rem'}}>지금 바로, BBuRingLog를 사용해보세요 !</TitleText>
+                    <motion.div
+                        whileInView={() => {
+                            // when element in viewport , set IsInView true!
+                            setIsInView1(true);
+                            return {};
+                        }}
+                        >
+                        <motion.div 
+                        ref={ref_first}
+                        initial={{x: -1000}}
+                        animate={isInView1 && {x: isInViewFirst ? [-1000,-7500, 0] : null}}
+                        transition={{duration: isInViewFirst ? 1 : null, times: isInViewFirst ? [0, 0.2, 0.5] : null}}>
+                            <TitleText>이 웹사이트는</TitleText>
+                        </motion.div>
+                            <br />
+                        <motion.div 
+                        ref={ref_first}
+                        initial={{x: -1000}}
+                        animate={isInView1 && {x: isInViewFirst ? [-1500, 0] : -1500}}
+                        transition={{delay: 1, duration: 1, times: [0, 0.5] }}>
+                            <ContentText2>뿌링클을 너무 사랑하는 사람들이 제작하였습니다.</ContentText2>
+                            <br />
+                            <ContentText2>BHC 매장마다 뿌링클 맛이 다른 걸 느끼신다구요?</ContentText2>
+                            <ContentText2>전국 매장을 돌아다니며 모든 매장의 뿌링클을 맛보고 싶으시다구요?</ContentText2>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </motion.div> 
+                        <motion.div 
+                        ref={ref_first}
+                        initial={{x: -1000}}
+                        animate={isInView1 && {x: isInViewFirst ? [-1500, 0] : -1500}}
+                        transition={{delay: 2, duration: 2 , times: [0, 0.5]}}>
+                            <TitleText style={{fontSize: '4rem'}}>지금 바로, BBuRingLog를 사용해보세요 !</TitleText>
+                        </motion.div>
                     </motion.div>
                 </div>
             </div>
 
+
             <div style={{height: '800px', width: '100%', backgroundColor: 'white', border: '1px, solid, black', position: 'absolute', marginTop: '0' }}>
-                <div style={{marginTop: '20%', marginRight: '10%', textAlign: 'right'}}>
-                    <motion.div 
-                    ref={ref}
-                    animate={{x: isInView ? [-10000,-5000,0] : 'none'}}
-                    transition={{duration: isInView ? 2 : null, times: isInView ?  [0, 0.2, 0.5] : null}}>
-                        <TitleText>사이트 사용법</TitleText>
+                <div style={{marginTop: '15%', marginRight: '10%', textAlign: 'right'}}>
+                    <motion.div
+                        whileInView={() => {
+                            // when element in viewport , set IsInView true!
+                            setIsInView2(true);
+                            return {};
+                        }}
+                    >
+                        <motion.div 
+                        ref={ref_second}
+                        animate={isInView2 && {x: isInViewSecond ? [-10000,-5000,0] : -10000}}
+                        transition={{duration: isInViewSecond ? 2 : null, times: isInViewSecond ?  [0, 0.2, 0.5] : null}}>
+                            <TitleText>사이트 사용법</TitleText>
+                        </motion.div>
+                            <br />
+                        <motion.div 
+                        ref={ref_second}
+                        animate={isInView2 && {x: isInViewSecond ? [-10000,-5000,0] : null}}
+                        transition={{delay: 1, duration: 1, times: [0, 0.2, 0.5] }}>
+                            <ContentText2>회원가입/로그인</ContentText2>
+                            <ContentText2>지도검색</ContentText2>
+                            <ContentText2>사진, 평점, 글 등록</ContentText2>
+                            <ContentText2>그룹 참가하면 그룹끼리 글 볼 수 있음</ContentText2>
+                        </motion.div> 
                     </motion.div>
-                        <br />
-                    <motion.div 
-                    ref={ref}
-                    animate={{x: isInView ? [-10000,-5000,0] : [0, -5000, -10000]}}
-                    transition={{delay: 1, duration: 1, times: [0, 0.2, 0.5] }}>
-                        <ContentText2>회원가입/로그인</ContentText2>
-                        <ContentText2>지도검색</ContentText2>
-                        <ContentText2>사진, 평점, 글 등록</ContentText2>
-                        <ContentText2>그룹 참가하면 그룹끼리 글 볼 수 있음</ContentText2>
-                    </motion.div> 
                 </div>
             </div>
 
