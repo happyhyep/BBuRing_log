@@ -77,6 +77,14 @@ spring, mongoDB 파일 설치
 
 # 💨 Page
 <div align="center">
+<h5>로그인 전</h5>
+<img src="https://user-images.githubusercontent.com/103382269/236515449-e15b2cb4-a2b1-4a1a-a76e-ebff48d32ca1.gif" width="700"></img>
+<h5>로그인 후 (회원)</h5>
+<img src="https://user-images.githubusercontent.com/103382269/236516258-6328adac-3208-4479-a7a2-b91746bb6a89.gif" width="700"></img>
+<h5>로그인 후 (지도)</h5>
+<img src="https://user-images.githubusercontent.com/103382269/236511801-6b39bac1-79ef-49ec-9804-77b844fd9cf6.gif" width="500"></img>
+<br />
+<br />
 <h5>홈</h5>
 <img src="https://user-images.githubusercontent.com/103382269/236511426-19ac9385-a063-4cea-b18a-9c1f38cb681b.png" width="700"></img>
 <h5>유저 프로필 확인</h5>
@@ -89,14 +97,6 @@ spring, mongoDB 파일 설치
 <img src="https://user-images.githubusercontent.com/103382269/236510805-f1dcb8af-cba3-47b3-b5db-815c3efb0e49.png" width="700"></img>
 <h5>글 작성하기</h5>
 <img src="https://user-images.githubusercontent.com/103382269/236510846-192c61ea-5023-4369-97e0-d6c90876d3dc.png" width="700"></img>
-<br />
-<br />
-<h5>로그인 전</h5>
-<img src="https://user-images.githubusercontent.com/103382269/236515449-e15b2cb4-a2b1-4a1a-a76e-ebff48d32ca1.gif" width="700"></img>
-<h5>로그인 후 (회원)</h5>
-<img src="https://user-images.githubusercontent.com/103382269/236516258-6328adac-3208-4479-a7a2-b91746bb6a89.gif" width="700"></img>
-<h5>로그인 후 (지도)</h5>
-<img src="https://user-images.githubusercontent.com/103382269/236511801-6b39bac1-79ef-49ec-9804-77b844fd9cf6.gif" width="500"></img>
 </div>
 
 
