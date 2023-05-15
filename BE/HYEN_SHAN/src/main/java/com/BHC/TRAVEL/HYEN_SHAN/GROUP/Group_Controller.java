@@ -35,15 +35,34 @@ public class Group_Controller {
 
     @ResponseBody
     @GetMapping("request")
-    public String Request_Group(String Userid, String Groupid) throws JsonProcessingException {
-        Criteria criteria = new Criteria("ID");
-        criteria.is(Userid);
+    public String Request_Group(String Userid, String GroupName) throws JsonProcessingException {
+        Criteria criteria = new Criteria("name");
+        criteria.is(GroupName);
         Query query = new Query(criteria);
-        USER temp = mongoTemplate.findOne(query, USER.class,"USER");
-        Criteria criteria1 = new Criteria("")
-        temp.setGroup(Groupid);
-        mongoTemplate.update
-        return "OKAY";
+        GroupParams temp = mongoTemplate.findOne(query, GroupParams.class);
+
+        Criteria criteria1 = new Criteria("ID");
+        criteria.is(Userid);
+        Query query1 = new Query(criteria);
+        mongoTemplate.up
+        USER user = mongoTemplate.findOne(query1, USER.class);
+
+
+        GroupRequest request = GroupRequest.builder().group_name(GroupName).leader(temp.getLeader()).request_user(Userid).build();
+        mongoTemplate.insert(request);
+        return "요청성공";
+
+    }
+
+    @ResponseBody
+    @GetMapping("accept")
+    public String AcceptGroup(String Userid, String GroupName) throws JsonProcessingException {
+        Criteria criteria = new Criteria("name");
+        criteria.is(GroupName);
+        Query query = new Query(criteria);
+        GroupRequest temp = mongoTemplate.findOne(query, GroupRequest.class);
+        mongoTemplate.insert(request);
+        return "요청성공";
 
     }
 

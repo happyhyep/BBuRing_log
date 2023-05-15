@@ -1,5 +1,6 @@
 package com.BHC.TRAVEL.HYEN_SHAN.USER.MODEL;
 
+import com.mongodb.lang.Nullable;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
@@ -19,7 +20,10 @@ public class USER {
     private String password;
     private String nickname;
     private String name;
+    @Nullable
     private String group;
+
+    private Boolean request = false;
 
     @Builder
     public USER(String ID, String password, String nickname,String name, String group){
