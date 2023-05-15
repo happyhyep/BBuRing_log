@@ -14,10 +14,10 @@ export default function PostComponent() {
             delay: 0.1,
             ease: [0.71, 0.71, 0.2, 1.01]}} >
                 <Positioner>
-                    <Star>별점 :</Star>
-                    <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuPa43fmrHgIZvcCgDkTgdGX8SUIq0L93Dnw&usqp=CAU'></Image>
+                    <Star>별점 : ⭐️⭐️⭐️⭐️⭐️</Star>
+                    <Image src='img/뿌링클/3.jpeg'></Image>
                     <Contents>
-                        간다ㅏ
+                        2
                     </Contents>
                 </Positioner>
             </motion.div>

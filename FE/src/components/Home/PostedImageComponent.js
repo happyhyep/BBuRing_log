@@ -8,11 +8,11 @@ function PostedImageComponent(props) {
     const [isHover, setIsHover] = useState(false);
     const [mouseOverComponentIdx, setMouseOverComponentIdx] = useState();
 
-    const images = ['http://www.bhc.co.kr/upload/bhc/menu/ck20150130_470_v.jpg',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuPa43fmrHgIZvcCgDkTgdGX8SUIq0L93Dnw&usqp=CAU',
-                'https://blog.kakaocdn.net/dn/criONw/btqGWTUql5w/G8HUksO7r4UMzAsZXi9LN1/img.png',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQUcJ4_mvRnDoLb8SHubqrbzfd4zlIIK46FQ&usqp=CAU',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsvzaOGbC5pX_Ut5RPt5gtcBZj7Efxep740w&usqp=CAU',
+    const images = ['img/뿌링클/1.jpeg',
+                'img/뿌링클/2.jpeg',
+                'img/뿌링클/3.jpeg',
+                'img/뿌링클/4.jpeg',
+                'img/뿌링클/5.jpeg',
                 ]
     
     const fetchedimages = useEffect(() => {
@@ -46,7 +46,7 @@ function PostedImageComponent(props) {
             {isHover ? 
                 <Hover>
                     <Positioner>
-                        <Star>별점 :</Star>
+                        <Star>별점 : ⭐️⭐️⭐️⭐️⭐️</Star>
                         <Image src={images[mouseOverComponentIdx]}></Image>
                         <Contents>
                             {mouseOverComponentIdx}
