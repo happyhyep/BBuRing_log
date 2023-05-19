@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 export default function RegisterComponent() {
     const [name, setName] = useState("");
     const [nickname, setNickName] = useState("");
-    const [id, setId] = useState(""); 
+    const [id, setId] = useState("");  
     const [password, setPassword] = useState("");
 
     const onNameHandler = (e) => {
