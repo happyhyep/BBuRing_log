@@ -3,11 +3,6 @@
     <h2 align="center">BBuRing_log :: 전국 뿌링클 기록장</h2>
 </div>
 
-## :💼: 팀 구성
-
-프론트엔드1, 백엔드1
-<br><br>
-
 ### Contents
 
   <ol>
@@ -16,6 +11,7 @@
     <li><a href="#-getting-started-installation">Getting Started</a></li>
     <li><a href="#-main-feature">Main Feature</a></li> 
     <li><a href="#-page">Page</a></li> 
+    <li><a href="#-members">Members</a></li> 
     <li><a href="#-architecture">Architecture</a></li> 
     <li><a href="#-contributing">Contributing</a></li>
     <li><a href="#-license">License</a></li>
@@ -37,12 +33,11 @@
 
 ### Language
 
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white">
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"><img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=OpenJDK&logoColor=white">
 
 ### Framework
 
-<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white">
-
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"><img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white">
 
 ### Style
 
@@ -50,8 +45,8 @@
 
 
 ### CI/CD
+<img src="https://img.shields.io/badge/AWS EC2-FF9900?style=for-the-badge&logo=Amazon EC2&logoColor=white"><img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=Docker&logoColor=white">
 
-<img src="https://img.shields.io/badge/AWS EC2-FF9900?style=for-the-badge&logo=Amazon EC2&logoColor=white">
 
 # 💨 Main Feature
 #### 홈
@@ -124,6 +119,20 @@ spring, mongoDB 파일 설치
 <h5>글 작성하기</h5>
 <img src="https://user-images.githubusercontent.com/103382269/236510846-192c61ea-5023-4369-97e0-d6c90876d3dc.png" width="700"></img>
 </div>
+
+
+# 💼 Members
+<table align="center">
+    <tr>
+        <td align="center">Front-end</td>
+        <td align="center">Back-end</td>
+    </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/happyhyep"><img src="https://avatars.githubusercontent.com/u/103382269?v=4" width="100px;" alt=""/></a><br /><sub><b>HyeIn Jeong</b></sub><br /><a href="https://github.com/happyhyep" title="BackEnd">@happyhyep</a></td>
+    <td align="center"><a href="https://github.com/van1164"><img src="https://avatars.githubusercontent.com/u/52437971?v=4" width="100px;" alt=""/></a><br /><sub><b>SiHwan Kim</b></sub><br /><a href="https://github.com/van1164" title="BackEnd">@van1164</a></td>
+  </tr>
+</table>
+
 
 
 # 💨 Architecture
