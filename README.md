@@ -3,10 +3,16 @@
     <h2 align="center">BBuRing_log :: 전국 뿌링클 기록장</h2>
 </div>
 
+## :💼: 팀 구성
+
+프론트엔드1, 백엔드1
+<br><br>
+
 ### Contents
 
   <ol>
     <li><a href="#-about-the-project">About The Project</a></li>
+    <li><a href="#-stack">Stack</a></li>
     <li><a href="#-getting-started-installation">Getting Started</a></li>
     <li><a href="#-main-feature">Main Feature</a></li> 
     <li><a href="#-page">Page</a></li> 
@@ -26,6 +32,26 @@
 ##### BHC 매장마다 뿌링클 맛이 다른 걸 느끼신다구요?
 ##### 전국 매장을 돌아다니며 모든 매장의 뿌링클을 맛보고 싶으시다구요?
 <br>
+
+# 🔨 Stack
+
+### Language
+
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white">
+
+### Framework
+
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white">
+
+
+### Style
+
+<img src="https://img.shields.io/badge/styled components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white">
+
+
+### CI/CD
+
+<img src="https://img.shields.io/badge/AWS EC2-FF9900?style=for-the-badge&logo=Amazon EC2&logoColor=white">
 
 # 💨 Main Feature
 #### 홈
